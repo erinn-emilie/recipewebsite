@@ -1,0 +1,9 @@
+.navbar--container {
+    background-color: pink; 
+    height: 15vh;
+    align-items: center;
+}
+
+.navbar--item{
+    text-align: center;
+}

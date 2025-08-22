@@ -11,6 +11,5 @@
   <ItemGroup>
     <Folder Include="src\Components\" />
     <Folder Include="src\Pages\" />
-    <Folder Include="src\Styles\" />
   </ItemGroup>
 </Project>
