@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import RecipeCard from '../Components/RecipeCard'
 import '../Styles/UniversalStyles.css'
 
 
 const HomePage = () => {
 
     const [curUrl, setCurUrl] = useState("")
-    const [message, setMessage] = useState("")
+    const [recipeData, setRecipeData] = useState({})
     const apiurl = "http://localhost:5000/run-script"
 
     const handleChange = (event) => {
@@ -26,16 +27,24 @@ const HomePage = () => {
         })
         .then(response => response.json())
         .then(data => {
-            setMessage(data["message"])
+            setRecipeData(data)
         })
     }
 
     return (
-        <div className="container-fluid body--container home--container">
-            <label>Please enter the url!</label>
-            <input onChange={handleChange} type="text"></input>
-            <button onClick={handleSubmit}>Submit</button>
-            <div>Your response is: {message}</div>
+        <div className="container-fluid d-flex flex-row">
+            <div className="container-fluid about--container d-flex flex-column">
+                <h1 className="mt-3">About Us</h1>
+                <p>About us section under construction. Check back later!</p>
+            </div>
+            <div className="container-fluid d-flex flex-column body--container">
+                <div className="p-2 flex-row">Enter a url below to get a neat, clear version of the recipe!</div>
+                <div className="p-2 d-flex flex-row">
+                    <input className="p-2 rounded flex-column" onChange={handleChange} type="text"></input>
+                    <button className="flex-column btn btn-dark" onClick={handleSubmit}>Submit</button>
+                </div>
+                <RecipeCard data={recipeData}></RecipeCard>
+            </div>
         </div>
     )
 }

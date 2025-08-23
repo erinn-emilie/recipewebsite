@@ -1,11 +1,27 @@
 .body--container {
-    height: 85vh;
+    height: 90vh;
+    width: 70vw;
+    background-color: #C4A484;
+    justify-content: start;
+    align-items: center;
 }
 
-.home--container {
-    background-color: lightblue;
+.about--container {
+    height: 90vh;
+    width: 30vw;
+    text-align: center;
+    justify-content: start;
+    align-items: center;
 }
 
-.recipebook--container {
-    background-color: mediumorchid;
+.recipe--card {
+    width: 80%;
+    height: fit-content;
+    background-color: #94c484;
+}
+
+.ingredients--column {
+    width: 33%;
+    align-items: center;
+    text-align: center;
 }

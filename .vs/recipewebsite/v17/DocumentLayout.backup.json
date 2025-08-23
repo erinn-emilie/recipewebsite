@@ -6,20 +6,16 @@
       "AbsoluteMoniker": "D:0:0:{C8E400EB-71A4-4B57-8DF9-A56350D79E2C}|..\\recipepython\\recipepython.pyproj|C:\\Users\\Erinn\\source\\repos\\recipepython\\recipepython.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\pages\\homepage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\pages\\homepage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -80,21 +76,12 @@
               "Name": "ST:139:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "main.jsx",
-              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\main.jsx",
-              "RelativeDocumentMoniker": "src\\main.jsx",
-              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\main.jsx",
-              "RelativeToolTip": "src\\main.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-08-22T15:39:30.539Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "App.jsx",
               "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\App.jsx",
               "RelativeDocumentMoniker": "src\\App.jsx",
@@ -102,7 +89,8 @@
               "RelativeToolTip": "src\\App.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-08-22T15:39:27.956Z"
+              "WhenOpened": "2025-08-22T15:39:27.956Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -114,8 +102,7 @@
               "RelativeToolTip": "package.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-22T15:26:53.466Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-22T15:26:53.466Z"
             },
             {
               "$type": "Document",
@@ -125,20 +112,20 @@
               "RelativeDocumentMoniker": "..\\recipepython\\recipepython.py",
               "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipepython\\recipepython.py",
               "RelativeToolTip": "..\\recipepython\\recipepython.py",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
               "WhenOpened": "2025-08-22T15:19:58.424Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "HomePage.jsx",
               "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Pages\\HomePage.jsx",
               "RelativeDocumentMoniker": "src\\Pages\\HomePage.jsx",
               "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Pages\\HomePage.jsx",
               "RelativeToolTip": "src\\Pages\\HomePage.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2025-08-21T18:01:09.728Z",
               "EditorCaption": ""
