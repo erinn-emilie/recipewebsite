@@ -1,4 +1,3 @@
-import '../Styles/UniversalStyles.css'
 
 
 const RecipeBookPage = () => {

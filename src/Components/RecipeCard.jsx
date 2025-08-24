@@ -1,5 +1,8 @@
-import '../Styles/UniversalStyles.css'
-import { useState } from 'react'
+import '../Styles/HomePage.css'
+import { useState, useEffect } from 'react'
+import { pdf } from '@react-pdf/renderer'
+import { saveAs } from 'file-saver'
+import RecipeDocument from './RecipeDocument'
 
 
 const RecipeCard = (props) => {
@@ -8,6 +11,14 @@ const RecipeCard = (props) => {
     const [highlightedIng, setHighlightedIng] = useState(-1)
     const [finishedSteps, setFinishedSteps] = useState([])
     const [finishedIngs, setFinishedIngs] = useState([])
+
+
+    useEffect(() => {
+        setHighlightedIng(-1)
+        setHighlightedStep(-1)
+        setFinishedIngs([])
+        setFinishedSteps([])
+    }, [props])
 
 
     const selectStep = (id) => {
@@ -44,17 +55,36 @@ const RecipeCard = (props) => {
         setFinishedIngs(temp)
     }
 
+    const saveRecipe = async () => {
+        const blob = await pdf(<RecipeDocument data={props.data} />).toBlob()
+        const filename = props.data.name + ".pdf"
+        saveAs(blob, filename)
+    }
+
+
     if (props.data.ingredients === undefined) {
-        return (
-            <div className="rounded recipe--card container-fluid d-flex flex-row justify-content-center">
-                <p className="text-center">Enter a url and your recipe will appear here! In the future this will have a sample recipe to show you what the output looks like. </p>
-            </div>
-        )
+        props.data.name = "Recipe Name"
+        props.data.yield = "One simple recipe"
+        props.data.cook_time = "A few seconds"
+        props.data.ingredients = ["The list of ingredients for your recipe will appear here!"]
+        props.data.instructions = [
+            "Find the url of the recipe you want to make.",
+            "Enter it in the box above and press submit.",
+            "Enjoy your easy-to-read recipe!",
+            "To highlighted a step or ingredient, just click on it! When you're done with it, just click it again!",
+            "To save a recipe as a pdf, just click the save recipe button!"
+        ]
+        props.data.author = "Erinn Keohane"
+        props.data.cuisine = "Any and ever kind!"
+        props.data.category = "Whatever you can find!"
     }
 
     return (
         <div className="rounded recipe--card container-fluid">
-            <h1 className="d-flex flex-row recipe--header mt-3">{props.data?.name}</h1>
+            <div className="d-flex flex-row justify-content-center align-items-center">
+                <h1 className="p-2 recipe--header mt-3">{props.data?.name}</h1>
+                <div onClick={() => saveRecipe()} role = "button" className="p-2 d-flex rounded mt-2 custom--btn">Save Recipe</div>
+            </div>
             <div className="d-flex flex-row">
                 <div className="p-2 d-flex flex-column container-fluid ingredients--column">
                     <h2 className="header">Ingredients</h2>
@@ -64,17 +94,17 @@ const RecipeCard = (props) => {
                             <>
                                 {
                                     number == highlightedIng && (
-                                        <div onClick={() => finishIng(number)} className="p-2 d-flex rounded selected mb-3 mt-3">{ingredient}</div>
+                                        <div onClick={() => finishIng(number)} role="button" className="p-2 d-flex rounded selected mb-3 mt-3">{ingredient}</div>
                                     )
                                 }
                                 {
                                     (number != highlightedIng && finishedIngs.indexOf(number) == -1) && (
-                                        <div onClick={() => selectIng(number)}  className="p-2 d-flex">{ingredient}</div>
+                                        <div onClick={() => selectIng(number)} role="button" className="p-2 d-flex">{ingredient}</div>
                                     )
                                 }
                                 {
                                     finishedIngs.indexOf(number) != -1 && (
-                                        <div onClick={() => startIng(number)} className="p-2 d-flex strickthrough">{ingredient}</div>
+                                        <div onClick={() => startIng(number)} role="button" className="p-2 d-flex strickthrough">{ingredient}</div>
                                     )
                                 }
                             </>
@@ -89,17 +119,17 @@ const RecipeCard = (props) => {
                             <>
                                 {
                                     number == highlightedStep && (
-                                        <div onClick={() => finishStep(number)} className="p-2 d-flex rounded selected mb-3 mt-3">Step {number + 1}. {step}</div>
+                                        <div onClick={() => finishStep(number)} role="button" className="p-2 d-flex rounded selected mb-3 mt-3">Step {number + 1}. {step}</div>
                                     )
                                 }
                                 {
                                     (number != highlightedStep && finishedSteps.indexOf(number) == -1) && (
-                                        <div onClick={() => selectStep(number)} className="p-2 d-flex">Step {number + 1}. {step}</div>
+                                        <div onClick={() => selectStep(number)} role="button" className="p-2 d-flex">Step {number + 1}. {step}</div>
                                     )
                                 }
                                 {
                                     finishedSteps.indexOf(number) != -1 && (
-                                        <div onClick={() => startStep(number)} className="p-2 d-flex strickthrough">Step {number + 1}. {step}</div>
+                                        <div onClick={() => startStep(number)} role="button" className="p-2 d-flex strickthrough">Step {number + 1}. {step}</div>
                                     )
                                 }
                             </>
@@ -111,7 +141,6 @@ const RecipeCard = (props) => {
                     <div className="p-2 d-flex">Author: {props.data?.author}</div>
                     <div className="p-2 d-flex">Cuisine Style: {props.data?.cuisine}</div>
                     <div className="p-2 d-flex">Category: {props.data?.category}</div>
-                    <button className="btn btn-primary">Save Recipe</button>
                 </div>
             </div>
         </div>
