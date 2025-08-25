@@ -7,7 +7,8 @@ const HomePage = () => {
 
     const [curUrl, setCurUrl] = useState("")
     const [recipeData, setRecipeData] = useState({})
-    const apiurl = "http://localhost:5000/run-script"
+    const apiurl = "http://localhost:5000/parse-recipe"
+
 
     const handleChange = (event) => {
         setCurUrl(event.target.value)

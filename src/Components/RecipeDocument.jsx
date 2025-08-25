@@ -42,6 +42,10 @@ const RecipeDocument = (props) => {
                     <Text>Author: {props.data.author}</Text>
                     <Text>Cuisuine Style: {props.data.cuisine}</Text>
                     <Text>Category: {props.data.category}</Text>
+                    <Text>Date Published: {props.data.date}</Text>
+                    <Text>Date Published: {props.data.date}</Text>
+                    <Text>Rating on {props.data.site_name}: {props.data.rating}</Text>
+                    <Text>Reviews on {props.data?.site_name}: {props.data?.reviews}</Text>
                 </View>
             </Page>
         </Document>

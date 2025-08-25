@@ -1,12 +1,13 @@
 .home--container {
-    background-color: #e5c185;
+    background-color: #efd7cf;
+    width: 100vw;
 }
 
 .body--container {
     height: fit-content;
     min-height: 90vh;
     width: 80vw;
-    background-color: #c7522a;
+    background-color: #f7ebe7;
     justify-content: start;
     align-items: center;
     font-family: 'Times New Roman';
@@ -25,8 +26,12 @@
 .recipe--card {
     width: 80%;
     height: fit-content;
-    background-color: #e5c185;
+    background-color: #deae9f;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    margin-bottom: 1%;
+}
+
+.nutrition--card {
 }
 
 .selected {
@@ -72,7 +77,7 @@
 }
 
 .custom--btn {
-    background-color: #008585;
+    background-color: #879693;
     color: white;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     justify-content: center;
@@ -81,7 +86,7 @@
 }
 
     .custom--btn:hover {
-        background-color: #94c1c0;
+        background-color: #a49e97;
         color: black;
     }
 
@@ -95,4 +100,14 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.savemodal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #436e6f;
+    width: 50vw;
+    height: 50vh;
 }

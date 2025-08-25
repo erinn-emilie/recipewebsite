@@ -1,9 +1,19 @@
 .navbar--container {
-    background-color: #fbf2c4;
+    background-color: #6a8e8f;
     height: 10vh;
     align-items: center;
+    width: 100vw;
 }
 
-.navbar--item{
+.navbar--link {
+    text-decoration: none;
+    font-family: 'Times New Roman';
+    font-weight: bold;
     text-align: center;
+    width: 10%;
+    color: #0a2d2e;
 }
+
+    .navbar--link:hover {
+        color: #ffffff;
+    }

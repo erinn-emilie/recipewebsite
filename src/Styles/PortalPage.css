@@ -1,0 +1,53 @@
+.body--container {
+    background-color: #f7ebe7;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.login--container {
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    background-color: #deae9f;
+    min-width: 40%;
+    width: fit-content;
+    height: fit-content;
+    margin-left: 30%;
+    margin-right: 30%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.header {
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.signup--link {
+    font-weight: bolder;
+    text-decoration: none;
+    color: #0a2d2e;
+}
+
+.signup--link:hover {
+    color: #ffffff;
+}
+
+.submit--btn {
+    background-color: #879693;
+    color: white;
+    text-align: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border: none;
+    text-align: center;
+}
+
+    .submit--btn:hover {
+        background-color: #a49e97;
+        color: black;
+    }

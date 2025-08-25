@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react'
 import { pdf } from '@react-pdf/renderer'
 import { saveAs } from 'file-saver'
 import RecipeDocument from './RecipeDocument'
+import SaveModal from './SaveModal'
+import Cookies from "js-cookie"
+
 
 
 const RecipeCard = (props) => {
@@ -11,6 +14,16 @@ const RecipeCard = (props) => {
     const [highlightedIng, setHighlightedIng] = useState(-1)
     const [finishedSteps, setFinishedSteps] = useState([])
     const [finishedIngs, setFinishedIngs] = useState([])
+    const [nutrition, setNutrition] = useState(false)
+    const [authToken, setAuthToken] = useState(Cookies.get("validuser"))
+    const [showSaveModal, setShowSaveModal] = useState(false)
+
+
+    const presenceCookie = Cookies.get("validuser")
+    if (authToken !== presenceCookie) {
+        setAuthToken(presenceCookie)
+    }
+
 
 
     useEffect(() => {
@@ -20,6 +33,11 @@ const RecipeCard = (props) => {
         setFinishedSteps([])
     }, [props])
 
+
+    const toggleNutrition = () => {
+        setNutrition(!nutrition)
+
+    }
 
     const selectStep = (id) => {
         setHighlightedStep(id)
@@ -59,6 +77,9 @@ const RecipeCard = (props) => {
         const blob = await pdf(<RecipeDocument data={props.data} />).toBlob()
         const filename = props.data.name + ".pdf"
         saveAs(blob, filename)
+        if (authToken == "true") {
+            setShowSaveModal(true)
+        }
     }
 
 
@@ -77,72 +98,106 @@ const RecipeCard = (props) => {
         props.data.author = "Erinn Keohane"
         props.data.cuisine = "Any and ever kind!"
         props.data.category = "Whatever you can find!"
+        props.data.site_name = "To be decided..."
+        props.data.date = "In the future"
+        props.data.reviews = "1! (me)"
+        props.data.rating = "5.0"
     }
 
     return (
         <div className="rounded recipe--card container-fluid">
-            <div className="d-flex flex-row justify-content-center align-items-center">
-                <h1 className="p-2 recipe--header mt-3">{props.data?.name}</h1>
-                <div onClick={() => saveRecipe()} role = "button" className="p-2 d-flex rounded mt-2 custom--btn">Save Recipe</div>
-            </div>
-            <div className="d-flex flex-row">
-                <div className="p-2 d-flex flex-column container-fluid ingredients--column">
-                    <h2 className="header">Ingredients</h2>
-                    <div className="p-2 d-flex">Yield: {props.data?.yield}</div>
-                    {
-                        props.data.ingredients?.map((ingredient, number) => (
-                            <>
+            { 
+                !nutrition && (
+                    <>
+                        <div className="d-flex flex-row justify-content-center align-items-center">
+                            <h1 className="p-2 recipe--header mt-3">{props.data?.name}</h1>
+                            <div onClick={() => saveRecipe()} role="button" className="p-2 d-flex rounded mt-2 custom--btn">Save Recipe</div>
+                            <div onClick={() => toggleNutrition()} role="button" className="m-1 d-flex rounded mt-2 custom--btn">Show Nutrition Information</div>
+                        </div>
+                        <div className="d-flex flex-row">
+                            <div className="p-2 d-flex flex-column container-fluid ingredients--column">
+                                <h2 className="header">Ingredients</h2>
+                                <div className="p-2 d-flex">Yield: {props.data?.yield}</div>
                                 {
-                                    number == highlightedIng && (
-                                        <div onClick={() => finishIng(number)} role="button" className="p-2 d-flex rounded selected mb-3 mt-3">{ingredient}</div>
-                                    )
+                                    props.data.ingredients?.map((ingredient, number) => (
+                                        <>
+                                            {
+                                                number == highlightedIng && (
+                                                    <div onClick={() => finishIng(number)} role="button" className="p-2 d-flex rounded selected mb-3 mt-3">{ingredient}</div>
+                                                )
+                                            }
+                                            {
+                                                (number != highlightedIng && finishedIngs.indexOf(number) == -1) && (
+                                                    <div onClick={() => selectIng(number)} role="button" className="p-2 d-flex">{ingredient}</div>
+                                                )
+                                            }
+                                            {
+                                                finishedIngs.indexOf(number) != -1 && (
+                                                    <div onClick={() => startIng(number)} role="button" className="p-2 d-flex strickthrough">{ingredient}</div>
+                                                )
+                                            }
+                                        </>
+                                    ))
                                 }
+                            </div>
+                            <div className="p-2 d-flex flex-column container-fluid instructions--column">
+                                <h2 className="header">Instructions</h2>
+                                <div className="p-2 d-flex">Cook Time: {props.data?.cook_time}</div>
                                 {
-                                    (number != highlightedIng && finishedIngs.indexOf(number) == -1) && (
-                                        <div onClick={() => selectIng(number)} role="button" className="p-2 d-flex">{ingredient}</div>
-                                    )
+                                    props.data.instructions?.map((step, number) => (
+                                        <>
+                                            {
+                                                number == highlightedStep && (
+                                                    <div onClick={() => finishStep(number)} role="button" className="p-2 d-flex rounded selected mb-3 mt-3">Step {number + 1}. {step}</div>
+                                                )
+                                            }
+                                            {
+                                                (number != highlightedStep && finishedSteps.indexOf(number) == -1) && (
+                                                    <div onClick={() => selectStep(number)} role="button" className="p-2 d-flex">Step {number + 1}. {step}</div>
+                                                )
+                                            }
+                                            {
+                                                finishedSteps.indexOf(number) != -1 && (
+                                                    <div onClick={() => startStep(number)} role="button" className="p-2 d-flex strickthrough">Step {number + 1}. {step}</div>
+                                                )
+                                            }
+                                        </>
+                                    ))
                                 }
-                                {
-                                    finishedIngs.indexOf(number) != -1 && (
-                                        <div onClick={() => startIng(number)} role="button" className="p-2 d-flex strickthrough">{ingredient}</div>
-                                    )
-                                }
-                            </>
-                        ))
-                    }
-                </div>
-                <div className="p-2 d-flex flex-column container-fluid instructions--column">
-                    <h2 className="header">Instructions</h2>
-                    <div className="p-2 d-flex">Cook Time: {props.data?.cook_time}</div>
-                    {
-                        props.data.instructions?.map((step, number) => (
-                            <>
-                                {
-                                    number == highlightedStep && (
-                                        <div onClick={() => finishStep(number)} role="button" className="p-2 d-flex rounded selected mb-3 mt-3">Step {number + 1}. {step}</div>
-                                    )
-                                }
-                                {
-                                    (number != highlightedStep && finishedSteps.indexOf(number) == -1) && (
-                                        <div onClick={() => selectStep(number)} role="button" className="p-2 d-flex">Step {number + 1}. {step}</div>
-                                    )
-                                }
-                                {
-                                    finishedSteps.indexOf(number) != -1 && (
-                                        <div onClick={() => startStep(number)} role="button" className="p-2 d-flex strickthrough">Step {number + 1}. {step}</div>
-                                    )
-                                }
-                            </>
-                        ))
-                    }
-                </div>
-                <div className="p-2 d-flex flex-column container-fluid info--column">
-                    <h2 className="header">Other Info</h2>
-                    <div className="p-2 d-flex">Author: {props.data?.author}</div>
-                    <div className="p-2 d-flex">Cuisine Style: {props.data?.cuisine}</div>
-                    <div className="p-2 d-flex">Category: {props.data?.category}</div>
-                </div>
-            </div>
+                            </div>
+                            <div className="p-2 d-flex flex-column container-fluid info--column">
+                                <h2 className="header">Other Info</h2>
+                                <div className="p-2 d-flex">Author: {props.data?.author}</div>
+                                <div className="p-2 d-flex">Site: {props.data?.site_name}</div>
+                                <div className="p-2 d-flex">Date Published: {props.data?.date}</div>
+                                <div className="p-2 d-flex">Cuisine Style: {props.data?.cuisine}</div>
+                                <div className="p-2 d-flex">Category: {props.data?.category}</div>
+                                <div className="p-2 d-flex">Rating on {props.data?.site_name}: {props.data?.rating}</div>
+                                <div className="p-2 d-flex">Reviews on {props.data?.site_name}: {props.data?.reviews}</div>
+                            </div>
+                        </div>
+                    </>
+                )
+            }
+            {
+                nutrition && (
+                    <div className="nutrition--card d-flex flex-column justify-content-center align-items-center">
+                        <div className="p-2 d-flex flex-row">
+                            <h1 className="p-2 recipe--header mt-3">Nutrition Information</h1>
+                            <div onClick={() => saveRecipe()} role="button" className="p-2 d-flex rounded mt-2 custom--btn">Save Recipe</div>
+                            <div onClick={() => toggleNutrition()} role="button" className="m-1 d-flex rounded mt-2 custom--btn">Hide Nutrition Information</div>
+                        </div>
+                        <div className="p-2 d-flex flex-row">
+                            <div className="p-2 d-flex flex-row">Calories: {props.data.nutrition?.calories}</div>
+                        </div>
+                    </div>
+                )
+            }
+            {/*{*/}
+            {/*    showSaveModal && (*/}
+            {/*        <SaveModal></SaveModal>*/}
+            {/*    )*/}
+            {/*}*/}
         </div>
     )
 }
