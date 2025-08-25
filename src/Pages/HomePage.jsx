@@ -27,7 +27,11 @@ const HomePage = () => {
             body: JSON.stringify({ "url": url }),
         })
         .then(response => response.json())
-        .then(data => {
+        .then(data => { 
+            data = {
+                ...data,
+                "url": url
+            }
             setRecipeData(data)
         })
     }

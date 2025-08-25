@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { pdf } from '@react-pdf/renderer'
 import { saveAs } from 'file-saver'
 import RecipeDocument from './RecipeDocument'
-import SaveModal from './SaveModal'
+import PromptBox from './PromptBox'
 import Cookies from "js-cookie"
 
 
@@ -15,14 +15,27 @@ const RecipeCard = (props) => {
     const [finishedSteps, setFinishedSteps] = useState([])
     const [finishedIngs, setFinishedIngs] = useState([])
     const [nutrition, setNutrition] = useState(false)
-    const [authToken, setAuthToken] = useState(Cookies.get("validuser"))
-    const [showSaveModal, setShowSaveModal] = useState(false)
+    const [showPrompt, setShowPrompt] = useState(false)
+    const [message, setMessage] = useState("")
+    const [redirect, setRedirect] = useState(false)
+
+    const apiurl = "http://localhost:5000/"
 
 
-    const presenceCookie = Cookies.get("validuser")
-    if (authToken !== presenceCookie) {
-        setAuthToken(presenceCookie)
+    const closePrompt = () => {
+        setShowPrompt(false)
+        setMessage("")
+        setRedirect(false)
     }
+
+
+    const saveRecipeCodes = {
+        "NOMESSAGE": 0,
+        "INVALUSER": 1,
+        "DOUBLESAVE": 2,
+        "SUCCESS": 3
+    }
+
 
 
 
@@ -73,12 +86,48 @@ const RecipeCard = (props) => {
         setFinishedIngs(temp)
     }
 
+    const saveToDatabase = async () => {
+        const url = apiurl + "save-recipe"
+        const data = {
+            ...props.data,
+            "userid": Cookies.get("userid"),
+            "username": Cookies.get("username")
+        }
+        fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message == saveRecipeCodes.SUCCESS) {
+                    setMessage("The recipe has been saved to your files and your account!")
+                    setShowPrompt(true)
+                }
+                else if (data.message == saveRecipeCodes.DOUBLESAVE) {
+                    setMessage("The recipe has been saved to your files but it looks like it already exists on your account! Try checking your kitchen.")
+                    setShowPrompt(true)
+                }
+                else {
+                    setMessage("The recipe has been saved to your files but something went wrong saving it to your account. Please try again later!")
+                    setShowPrompt(true)
+                }
+            })
+    }
+
     const saveRecipe = async () => {
         const blob = await pdf(<RecipeDocument data={props.data} />).toBlob()
         const filename = props.data.name + ".pdf"
         saveAs(blob, filename)
-        if (authToken == "true") {
-            setShowSaveModal(true)
+        if (Cookies.get("validuser") == "true") {
+            saveToDatabase()
+        }
+        else {
+            setMessage("The recipe has been saved to your files! Sign up or log in to your account to save it to your kitchen!")
+            setRedirect(true)
+            setShowPrompt(true)
         }
     }
 
@@ -181,7 +230,7 @@ const RecipeCard = (props) => {
             }
             {
                 nutrition && (
-                    <div className="nutrition--card d-flex flex-column justify-content-center align-items-center">
+                    <div className="d-flex flex-column justify-content-center align-items-center">
                         <div className="p-2 d-flex flex-row">
                             <h1 className="p-2 recipe--header mt-3">Nutrition Information</h1>
                             <div onClick={() => saveRecipe()} role="button" className="p-2 d-flex rounded mt-2 custom--btn">Save Recipe</div>
@@ -193,11 +242,11 @@ const RecipeCard = (props) => {
                     </div>
                 )
             }
-            {/*{*/}
-            {/*    showSaveModal && (*/}
-            {/*        <SaveModal></SaveModal>*/}
-            {/*    )*/}
-            {/*}*/}
+            {
+                showPrompt && (
+                    <PromptBox close={closePrompt} message={message} redirect={redirect}></PromptBox>
+                )
+            }
         </div>
     )
 }

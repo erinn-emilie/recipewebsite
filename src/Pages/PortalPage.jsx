@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Cookies from "js-cookie"
+import AuthContext from '../Context/AuthContext'
+
 
 import '../Styles/PortalPage.css'
 
@@ -15,6 +17,8 @@ const PortalPage = () => {
     const [failureString, setfailureString] = useState("")
     const apiurl = "http://localhost:5000/"
     const navigate = useNavigate()
+    const authDict = useContext(AuthContext)
+
 
     const SignupCodes = {
         "NOMESSAGE": 0,
@@ -71,8 +75,10 @@ const PortalPage = () => {
         .then(response => response.json())
         .then(data => {
             if (data.message == SignupCodes.SUCCESS) {
-                Cookies.set('validuser', 'true', { expires: 1, path: '/' })
-                Cookies.set('username', username, { expires: 1, path: '/' })
+                Cookies.set('validuser', 'true', { path: '/' })
+                Cookies.set('username', username, { path: '/' })
+                Cookies.set('userid', data.userid, { path: '/' })
+                authDict.updateAuth("true")
                 navigate('/kitchen')
             }
             else {
@@ -93,10 +99,11 @@ const PortalPage = () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data.message)
                 if (data.message == LoginCodes.SUCCESS) {
-                    Cookies.set('validuser', 'true', { expires: 1, path: '/' })              
-                    Cookies.set('username', username, { expires: 1, path: '/' }) 
+                    Cookies.set('validuser', 'true', { path: '/' })              
+                    Cookies.set('username', username, {  path: '/' }) 
+                    Cookies.set('userid', data.userid, { path: '/' })
+                    authDict.updateAuth("true")
                     navigate('/kitchen')
                 }
                 else {
@@ -144,11 +151,11 @@ const PortalPage = () => {
                                 </div>
                                 <div className="d-flex flex-row mt-1 align-items-center ">
                                     <label className="me-5 text-align-center">Password</label>
-                                    <input className="rounded" onChange={handlePasswordChange} value={password} type="text"></input>
+                                    <input className="rounded" onChange={handlePasswordChange} value={password} type="password"></input>
                                 </div>
                                 <div className="d-flex flex-row mt-1 align-items-center ">
                                     <label className="me-5 text-align-center">Re-Type Password</label>
-                                    <input className="rounded" onChange={handleRetypedChange} value={retyped} type="text"></input>
+                                    <input className="rounded" onChange={handleRetypedChange} value={retyped} type="password"></input>
                                 </div>
                                 <button type="submit" className="d-flex flex-row submit--btn rounded">Submit</button>
                             </form>
@@ -174,7 +181,7 @@ const PortalPage = () => {
                                 </div>
                                 <div className="d-flex flex-row mt-1 align-items-center ">
                                     <label className="me-5 text-align-center">Password</label>
-                                    <input className="rounded" onChange={handlePasswordChange} value={password} type="text"></input>
+                                    <input className="rounded" onChange={handlePasswordChange} value={password} type="password"></input>
                                 </div>
                                 <button type="submit" className="d-flex flex-row submit--btn rounded">Submit</button>
                             </form>

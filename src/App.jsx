@@ -4,19 +4,33 @@ import HomePage from './Pages/HomePage'
 import RecipeBookPage from './Pages/RecipeBookPage'
 import PortalPage from './Pages/PortalPage'
 import KitchenPage from './Pages/KitchenPage'
+import Cookies from "js-cookie"
+import { useState } from 'react'
+import AuthContext from './Context/AuthContext'
+
+
 
 function App() {
+
+    const [authValue, setAuthValue] = useState("false")
+
+    const updateAuth = (newvalue) => {
+        setAuthValue(newvalue)
+    }
+
     return (
         <>
-            <Navbar />
-            <div>
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/recipes" element={<RecipeBookPage />} />
-                    <Route path="/portal" element={<PortalPage />} />
-                    <Route path="/kitchen" element={<KitchenPage/> }></Route>
-                </Routes>
-            </div>
+            <AuthContext.Provider value={{authValue, updateAuth} }>
+                <Navbar />
+                <div>
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/recipes" element={<RecipeBookPage />} />
+                        <Route path="/portal" element={<PortalPage />} />
+                        <Route path="/kitchen" element={<KitchenPage/> }></Route>
+                    </Routes>
+                </div>
+            </AuthContext.Provider>
         </>
 
     )

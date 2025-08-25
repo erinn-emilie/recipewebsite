@@ -1,12 +1,17 @@
-# React + Vite
+Current things we need to do:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Need to make a dialog modal that prompts the user to signup/login and save their recipe to their account or tells the user if something went wrong when saving a recipe
+	(i.e., they've already saved that recipe). When this is finished it would be good to have cookies saved of the current generated recipe so it doesn't disappear when the user clicks off
+	the page, though I feel like this is going to be an annoying process and maybe we skip it for now????
 
-Currently, two official plugins are available:
+When users sign up it prompts them if the information they provided is invalid, but it should tell them which information is invalid, like if the username has been taken, the email
+	is wrong, or their password is too short.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+When users log in it should prompt them if their information is incorrect
 
-## Expanding the ESLint configuration
+After this need to start work on refactoring some of the React components, as the code needs cleaned up
+Then, need to work on cleaning up the parsing of recipes and confirming that it works with all/most sites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Then, need to fix up the way the information for each recipe is displayed (i.e., )
+
+THEN, can start on kitchen

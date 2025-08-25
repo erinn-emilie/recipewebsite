@@ -1,18 +1,19 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import '../Styles/NavBar.css'
 import Cookies from "js-cookie"
+import AuthContext from '../Context/AuthContext'
+
 
 
 const NavBar = () => {
 
     const [validUser, setValidUser] = useState(false)
-    const [authToken, setAuthToken] = useState(Cookies.get("validuser"))
+    const authToken = useContext(AuthContext)
 
     useEffect(() => {
-        console.log(authToken)
-        if (authToken == "true") {
+        if (authToken["authValue"] == "true") {
             setValidUser(true)
         }
         else {
@@ -20,9 +21,13 @@ const NavBar = () => {
         }
     }, [authToken])
 
-    const presenceCookie = Cookies.get("validuser")
-    if (authToken !== presenceCookie) {
-        setAuthToken(presenceCookie)
+
+    const logOut = () => {
+        Cookies.set('validuser', 'false', { path: '/' })
+        Cookies.set('username', "None", { path: '/' })
+        Cookies.set('userid', -1, { path: '/' })
+        setValidUser(false)
+        authToken.updateAuth("false)")
     }
 
     return (
@@ -38,7 +43,7 @@ const NavBar = () => {
                 validUser && (
                     <>
                         <Link className="navbar--link d-flex flex-column" to="/kitchen">Kitchen</Link>
-                        <div role = "button" className="ms-auto navbar--link d-flex flex-column">Log Out</div>
+                        <div onClick={logOut} role = "button" className="ms-auto navbar--link d-flex flex-column">Log Out</div>
                     </>
                 )
             }

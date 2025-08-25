@@ -1,0 +1,42 @@
+.prompt--container {
+    position: absolute;
+    background-color: #a49e97;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    width: 50vw;
+    height: 50vh;
+    box-shadow: 0 0 0 1600px rgba(0,0,0,0.65); 
+}
+
+.prompt--message {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    margin-top: 20%;
+    margin-bottom: 30%;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.x--btn {
+    position: fixed;
+    left: 85%;
+    bottom: 85%;
+    width: 10%;
+    height: 10%;
+    background-color: #1c4e4f;
+    color: white;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+    .x--btn:hover {
+        background-color: #6a8e8f;
+        color: black;
+    }
+

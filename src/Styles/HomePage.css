@@ -8,8 +8,6 @@
     min-height: 90vh;
     width: 80vw;
     background-color: #f7ebe7;
-    justify-content: start;
-    align-items: center;
     font-family: 'Times New Roman';
 }
 
@@ -31,8 +29,6 @@
     margin-bottom: 1%;
 }
 
-.nutrition--card {
-}
 
 .selected {
     background-color: #74a892;
