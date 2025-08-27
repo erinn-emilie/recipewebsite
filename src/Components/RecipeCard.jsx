@@ -1,4 +1,4 @@
-import '../Styles/HomePage.css'
+import '../Styles/RecipeCard.css'
 import { useState, useEffect } from 'react'
 import { pdf } from '@react-pdf/renderer'
 import { saveAs } from 'file-saver'
@@ -19,25 +19,6 @@ const RecipeCard = (props) => {
     const [showPrompt, setShowPrompt] = useState(false)
     const [message, setMessage] = useState("")
     const [redirect, setRedirect] = useState(false)
-    const [alreadyLiked, setAlreadyLiked] = useState(false)
-
-    const apiurl = "http://localhost:5000/"
-
-    const updateSaved = (status) => {
-        if (Cookies.get("validuser") == "true") {
-            if (status) {
-                saveToDatabase()
-            }
-            else {
-                //removeFromDatabase()
-            }
-        }
-        else {
-            setMessage("Please log in or create an account to save a recipe to your kitchen!")
-            setRedirect(true)
-            setShowPrompt(true)
-        }
-    }
 
 
 
@@ -47,15 +28,11 @@ const RecipeCard = (props) => {
         setRedirect(false)
     }
 
-
-    const saveRecipeCodes = {
-        "NOMESSAGE": 0,
-        "INVALUSER": 1,
-        "DOUBLESAVE": 2,
-        "SUCCESS": 3
+    const openPrompt = (message, redirect) => {
+        setShowPrompt(true)
+        setMessage(message)
+        setRedirect(redirect)
     }
-
-
 
 
     useEffect(() => {
@@ -63,13 +40,6 @@ const RecipeCard = (props) => {
         setHighlightedStep(-1)
         setFinishedIngs([])
         setFinishedSteps([])
-
-        if (props.data?.userLiked == "true" && Cookies.get("validuser") == "true") {
-            setAlreadyLiked(true)
-        }
-        else {
-            setAlreadyLiked(false)
-        }
     }, [props])
 
 
@@ -112,56 +82,15 @@ const RecipeCard = (props) => {
         setFinishedIngs(temp)
     }
 
-    const saveToDatabase = async () => {
-        if (Cookies.get("validuser") == "true") {
-            const url = apiurl + "save-recipe"
-            const data = {
-                ...props.data,
-                "userid": Cookies.get("userid"),
-                "username": Cookies.get("username")
-            }
-            fetch(url, {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.message == saveRecipeCodes.SUCCESS) {
-                        setMessage("The recipe has been saved to your files and your account!")
-                        setShowPrompt(true)
-                    }
-                    else if (data.message == saveRecipeCodes.DOUBLESAVE) {
-                        setMessage("The recipe has been saved to your files but it looks like it already exists on your account! Try checking your kitchen.")
-                        setShowPrompt(true)
-                    }
-                    else {
-                        setMessage("The recipe has been saved to your files but something went wrong saving it to your account. Please try again later!")
-                        setShowPrompt(true)
-                    }
-                })
-        }
-        else {
-            setMessage("To save a recipe to your kitchen, please log in or create an account!")
-            setRedirect(true)
-            setShowPrompt(true)
-        }
-    }
-
     const saveRecipe = async () => {
         const blob = await pdf(<RecipeDocument data={props.data} />).toBlob()
         const filename = props.data.name + ".pdf"
         saveAs(blob, filename)
         if (Cookies.get("validuser") != "true") {
-            setMessage("The recipe has been saved to your files! Sign up or log in to your account to save it to your kitchen!")
-            setRedirect(true)
-            setShowPrompt(true)
+            openPrompt("The recipe has been saved to your files! Sign up or log in to your account to save it to your kitchen!", true)
         }
         else {
-            setMessage("The recipe has been saved to your files! To save it to your kitchen, please click the heart!")
-            setShowPrompt(true)
+            openPrompt("The recipe has been saved to your files! To save it to your kitchen, please click the heart!", false)
         }
     }
 
@@ -188,6 +117,7 @@ const RecipeCard = (props) => {
         props.data.date = "In the future"
         props.data.reviews = "1! (me)"
         props.data.rating = "5.0"
+        props.data.userliked = "false"
         //}
         //else {
         //    props.data = possibledata
@@ -197,7 +127,7 @@ const RecipeCard = (props) => {
     return (
         <div className="rounded recipe--card container-fluid">
             <div className="d-flex flex-row justify-content-center align-items-center">
-                <HeartButton liked={alreadyLiked} update={updateSaved}></HeartButton>
+                <HeartButton data={props.data} openprompt={openPrompt}></HeartButton>
                 <h1 className="p-2 recipe--header mt-3">{props.data?.name}</h1>
                 <div onClick={() => saveRecipe()} role="button" className="p-2 d-flex rounded mt-2 custom--btn">Save as PDF</div>
                 {

@@ -21,70 +21,7 @@
     font-family: 'Times New Roman';
 }
 
-.recipe--card {
-    width: 80%;
-    height: fit-content;
-    background-color: #deae9f;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    margin-bottom: 1%;
-}
 
-
-.selected {
-    background-color: #74a892;
-    color: black;
-    transform: scale(1.05);
-    box-shadow: #9fca90 5px 5px, #a9d09d 10px 10px;
-}
-
-.strickthrough {
-    text-decoration: line-through; 
-}
-
-
-.ingredients--column {
-    width: 40%;
-    align-items: center;
-    text-align: center;
-}
-
-.instructions--column {
-    width: 40%;
-    align-items: center;
-    text-align: center;
-}
-
-.info--column {
-    width: 20%;
-    align-items: center;
-    text-align: center;
-}
-
-.header {
-    font-weight: bold;
-}
-
-.recipe--header {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    width: 80%;
-}
-
-.custom--btn {
-    background-color: #879693;
-    color: white;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
-
-    .custom--btn:hover {
-        background-color: #a49e97;
-        color: black;
-    }
 
 .url--input {
     width: 80%;
@@ -96,14 +33,4 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-}
-
-.savemodal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #436e6f;
-    width: 50vw;
-    height: 50vh;
 }

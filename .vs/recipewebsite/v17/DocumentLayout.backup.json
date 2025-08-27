@@ -54,32 +54,6 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HeartButton.css",
-              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Styles\\HeartButton.css",
-              "RelativeDocumentMoniker": "src\\Styles\\HeartButton.css",
-              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Styles\\HeartButton.css",
-              "RelativeToolTip": "src\\Styles\\HeartButton.css",
-              "ViewState": "AgIAABQAAAAAAAAAAAAqwC8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-26T20:21:46.714Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HeartButton.jsx",
-              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Components\\HeartButton.jsx",
-              "RelativeDocumentMoniker": "src\\Components\\HeartButton.jsx",
-              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Components\\HeartButton.jsx",
-              "RelativeToolTip": "src\\Components\\HeartButton.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-08-26T20:20:45.429Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
@@ -133,6 +107,32 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HeartButton.css",
+              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Styles\\HeartButton.css",
+              "RelativeDocumentMoniker": "src\\Styles\\HeartButton.css",
+              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Styles\\HeartButton.css",
+              "RelativeToolTip": "src\\Styles\\HeartButton.css",
+              "ViewState": "AgIAABQAAAAAAAAAAAAqwC8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-26T20:21:46.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HeartButton.jsx",
+              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Components\\HeartButton.jsx",
+              "RelativeDocumentMoniker": "src\\Components\\HeartButton.jsx",
+              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Components\\HeartButton.jsx",
+              "RelativeToolTip": "src\\Components\\HeartButton.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-08-26T20:20:45.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
               "Title": "HomePage.css",
               "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Styles\\HomePage.css",
@@ -165,7 +165,7 @@
               "RelativeDocumentMoniker": "src\\Components\\RecipeCard.jsx",
               "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Components\\RecipeCard.jsx",
               "RelativeToolTip": "src\\Components\\RecipeCard.jsx",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAAAK8AAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAK8AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2025-08-26T15:14:23.776Z",
               "EditorCaption": ""

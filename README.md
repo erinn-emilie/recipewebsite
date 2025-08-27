@@ -19,14 +19,17 @@ THEN, can start on kitchen
 
 
 
-What needs to happen when parsing recipes is:
+~~What needs to happen when parsing recipes is:~~
 
-First we check if the recipe is already in the database, if it is we set up the return_dictionary from there
+~~First we check if the recipe is already in the database, if it is we set up the return_dictionary from there
 	If it isn't, we parse it from the data we got from the website and set up the return_dictionary
 	Then, we put it in the database
-	*The userLiked field is always set to the string 'false'*
+	*The userLiked field is always set to the string 'false'*~~
 
-If the recipe was already in the database, we check the username of the user requesting to save
+~~If the recipe was already in the database, we check the username of the user requesting to save
 	If the user is logged in, we query the database for the user and get their savedrecipes string
 	Then, we check to see if the current recipe is in the savedrecipes string.
-		If it is, we set the userLiked field to the string 'true'
+		If it is, we set the userLiked field to the string 'true'~~
+
+Need error handling in python code for parsing!!!!!!!!!!!!
+Also users need to be able to unsave with the heart
