@@ -75,9 +75,9 @@ const PortalPage = () => {
         .then(response => response.json())
         .then(data => {
             if (data.message == SignupCodes.SUCCESS) {
-                Cookies.set('validuser', 'true', { path: '/' })
-                Cookies.set('username', username, { path: '/' })
-                Cookies.set('userid', data.userid, { path: '/' })
+                Cookies.set('validuser', 'true', {expires: 1, path: '/' })
+                Cookies.set('username', username, { expires: 1, path: '/' })
+                Cookies.set('userid', data.userid, { expires: 1, path: '/' })
                 authDict.updateAuth("true")
                 navigate('/kitchen')
             }
@@ -100,9 +100,9 @@ const PortalPage = () => {
             .then(response => response.json())
             .then(data => {
                 if (data.message == LoginCodes.SUCCESS) {
-                    Cookies.set('validuser', 'true', { path: '/' })              
-                    Cookies.set('username', username, {  path: '/' }) 
-                    Cookies.set('userid', data.userid, { path: '/' })
+                    Cookies.set('validuser', 'true', { expires: 1, path: '/' })              
+                    Cookies.set('username', username, { expires: 1, path: '/' }) 
+                    Cookies.set('userid', data.userid, { expires: 1, path: '/' })
                     authDict.updateAuth("true")
                     navigate('/kitchen')
                 }
@@ -187,6 +187,11 @@ const PortalPage = () => {
                             </form>
                         </div>
                         <div className="d-flex flex-row mb-2">Don't have an account? Sign up <div role="button" onClick={() => toggleForm()} className="ms-1 signup--link">here</div>!</div>
+                        {
+                            failureString.length > 0 && (
+                                <div className="d-flex flex-row mb-2">{failureString}</div>
+                            )
+                        }
                     </div>
                 )
             }

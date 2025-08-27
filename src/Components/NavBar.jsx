@@ -21,11 +21,17 @@ const NavBar = () => {
         }
     }, [authToken])
 
+    useEffect(() => {
+        if (Cookies.get("validuser") == "true") {
+            setValidUser(true)
+        }
+    }, [])
+
 
     const logOut = () => {
-        Cookies.set('validuser', 'false', { path: '/' })
-        Cookies.set('username', "None", { path: '/' })
-        Cookies.set('userid', -1, { path: '/' })
+        Cookies.set('validuser', 'false', { expires: 1, path: '/' })
+        Cookies.set('username', "None", { expires: 1, path: '/' })
+        Cookies.set('userid', -1, { expires: 1, path: '/' })
         setValidUser(false)
         authToken.updateAuth("false)")
     }

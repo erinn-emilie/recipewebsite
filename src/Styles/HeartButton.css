@@ -1,0 +1,50 @@
+.heart-button-container {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+}
+
+    .heart-button-container:hover {
+        transform: scale(1.1);
+    }
+
+.heart-icon {
+    position: relative;
+    width: 25px; /* Half the container width */
+    height: 25px; /* Half the container height */
+    background-color: #ccc; /* Default color */
+    transform: rotate(-45deg);
+    transition: background-color 0.2s ease-in-out;
+}
+
+    .heart-icon::before,
+    .heart-icon::after {
+        content: '';
+        position: absolute;
+        width: 25px; /* Same as heart-icon width */
+        height: 25px; /* Same as heart-icon height */
+        background-color: #ccc; /* Default color */
+        border-radius: 50%;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    .heart-icon::before {
+        top: -12.5px; /* Half the height */
+        left: 0;
+    }
+
+    .heart-icon::after {
+        left: 12.5px; /* Half the width */
+        top: 0;
+    }
+
+.heart-button-container.liked .heart-icon,
+.heart-button-container.liked .heart-icon::before,
+.heart-button-container.liked .heart-icon::after {
+    background-color: red; /* Liked state color */
+}

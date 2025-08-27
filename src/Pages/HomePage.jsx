@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import RecipeCard from '../Components/RecipeCard'
 import '../Styles/HomePage.css'
+import Cookies from "js-cookie"
+
 
 
 const HomePage = () => {
@@ -18,21 +20,30 @@ const HomePage = () => {
         handleFetch(curUrl)
     }
 
-    const handleFetch = async(url) => {
+
+    const handleFetch = async (url) => {
+        let username = ""
+        if (Cookies.get("validuser") == "true") {
+            username = Cookies.get("username")
+        }
+        else {
+            username = "N/A"
+        }
         fetch(apiurl, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ "url": url }),
+            body: JSON.stringify({ "url": url, "username": username }),
         })
         .then(response => response.json())
         .then(data => { 
             data = {
                 ...data,
-                "url": url
+                "url": url,
             }
             setRecipeData(data)
+            Cookies.set('currentrecipe', data, { path: '/' })
         })
     }
 
