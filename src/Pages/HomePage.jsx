@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import RecipeCard from '../Components/RecipeCard'
 import '../Styles/HomePage.css'
 import Cookies from "js-cookie"
+import PromptBox from '../Components/PromptBox'
+
 
 
 
@@ -9,6 +11,30 @@ const HomePage = () => {
 
     const [curUrl, setCurUrl] = useState("")
     const [recipeData, setRecipeData] = useState({})
+    const [showPrompt, setShowPrompt] = useState(false)
+    const [message, setMessage] = useState("")
+    const [redirect, setRedirect] = useState(false)
+
+
+    //useEffect(() => {
+    //    if (Cookies.get("currenturl") != null) {
+    //        handleFetch(Cookies.get("currenturl"))
+    //    }
+    //})
+
+
+    const closePrompt = () => {
+        setShowPrompt(false)
+        setMessage("")
+        setRedirect(false)
+    }
+
+    const openPrompt = (message, redirect) => {
+        setShowPrompt(true)
+        setMessage(message)
+        setRedirect(redirect)
+    }
+
     const apiurl = "http://localhost:5000/parse-recipe"
 
 
@@ -18,6 +44,10 @@ const HomePage = () => {
 
     const handleSubmit = () => {
         handleFetch(curUrl)
+    }
+
+    const badParseCodes = {
+        "INVALURL": 0
     }
 
 
@@ -38,12 +68,17 @@ const HomePage = () => {
         })
         .then(response => response.json())
         .then(data => { 
-            data = {
-                ...data,
-                "url": url,
+            if ("message" in data) {
+                openPrompt("There seems to be a problem accessing that site. Please check your url and try again!", false)
             }
-            setRecipeData(data)
-            Cookies.set('currentrecipe', data, { path: '/' })
+            else {
+                data = {
+                    ...data,
+                    "url": url,
+                }
+                setRecipeData(data)
+                Cookies.set('currenturl', url, { path: '/' })
+            }
         })
     }
 
@@ -59,8 +94,13 @@ const HomePage = () => {
                     <input className="p-2 rounded flex-column url--input" onChange={handleChange} type="text"></input>
                     <div className="flex-column rounded p-2 custom--btn" role="button" onClick={handleSubmit}>Submit</div>
                 </div>
-                <RecipeCard data={recipeData}></RecipeCard>
+                <RecipeCard openprompt={openPrompt} closeprompt={closePrompt} data={recipeData}></RecipeCard>
             </div>
+            {
+                showPrompt && (
+                    <PromptBox close={closePrompt} redirect={redirect} message={message}></PromptBox>
+                )
+            }
         </div>
     )
 }

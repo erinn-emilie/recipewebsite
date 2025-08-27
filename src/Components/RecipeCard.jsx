@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { pdf } from '@react-pdf/renderer'
 import { saveAs } from 'file-saver'
 import RecipeDocument from './RecipeDocument'
-import PromptBox from './PromptBox'
 import HeartButton from './HeartButton'
 import Cookies from "js-cookie"
 
@@ -16,23 +15,6 @@ const RecipeCard = (props) => {
     const [finishedSteps, setFinishedSteps] = useState([])
     const [finishedIngs, setFinishedIngs] = useState([])
     const [nutrition, setNutrition] = useState(false)
-    const [showPrompt, setShowPrompt] = useState(false)
-    const [message, setMessage] = useState("")
-    const [redirect, setRedirect] = useState(false)
-
-
-
-    const closePrompt = () => {
-        setShowPrompt(false)
-        setMessage("")
-        setRedirect(false)
-    }
-
-    const openPrompt = (message, redirect) => {
-        setShowPrompt(true)
-        setMessage(message)
-        setRedirect(redirect)
-    }
 
 
     useEffect(() => {
@@ -42,11 +24,6 @@ const RecipeCard = (props) => {
         setFinishedSteps([])
     }, [props])
 
-
-    const toggleNutrition = () => {
-        setNutrition(!nutrition)
-
-    }
 
     const selectStep = (id) => {
         setHighlightedStep(id)
@@ -87,10 +64,10 @@ const RecipeCard = (props) => {
         const filename = props.data.name + ".pdf"
         saveAs(blob, filename)
         if (Cookies.get("validuser") != "true") {
-            openPrompt("The recipe has been saved to your files! Sign up or log in to your account to save it to your kitchen!", true)
+            props.openprompt("The recipe has been saved to your files! Sign up or log in to your account to save it to your kitchen!", true)
         }
         else {
-            openPrompt("The recipe has been saved to your files! To save it to your kitchen, please click the heart!", false)
+            props.openprompt("The recipe has been saved to your files! To save it to your kitchen, please click the heart!", false)
         }
     }
 
@@ -127,17 +104,17 @@ const RecipeCard = (props) => {
     return (
         <div className="rounded recipe--card container-fluid">
             <div className="d-flex flex-row justify-content-center align-items-center">
-                <HeartButton data={props.data} openprompt={openPrompt}></HeartButton>
+                <HeartButton data={props.data} openprompt={props.openprompt}></HeartButton>
                 <h1 className="p-2 recipe--header mt-3">{props.data?.name}</h1>
                 <div onClick={() => saveRecipe()} role="button" className="p-2 d-flex rounded mt-2 custom--btn">Save as PDF</div>
                 {
                     !nutrition && (
-                        <div onClick={() => toggleNutrition()} role="button" className="m-1 d-flex rounded mt-2 custom--btn">Show Nutrition Information</div>
+                        <div onClick={() => setNutrition(true)} role="button" className="m-1 d-flex rounded mt-2 custom--btn">Show Nutrition Information</div>
                     )
                 }
                 {
                     nutrition && (
-                        <div onClick={() => toggleNutrition()} role="button" className="m-1 d-flex rounded mt-2 custom--btn">Hide Nutrition Information</div>
+                        <div onClick={() => setNutrition(false)} role="button" className="m-1 d-flex rounded mt-2 custom--btn">Hide Nutrition Information</div>
                     )
                 }
             </div>
@@ -206,18 +183,18 @@ const RecipeCard = (props) => {
             {
                 nutrition && (
                     <div className="d-flex flex-column justify-content-center align-items-center">
-                        <div className="p-2 d-flex flex-row">
-                            <h1 className="p-2 recipe--header mt-3">Nutrition Information</h1>
-                        </div>
-                        <div className="p-2 d-flex flex-row">
+                        <div className="p-2 d-flex flex-column justify-content-center align-items-center">
+                            <h1 className="p-2 d-flex flex-row recipe--header mt-3">Nutrition Information</h1>
                             <div className="p-2 d-flex flex-row">Calories: {props.data.nutrition?.calories}</div>
+                            <div className="p-2 d-flex flex-row">Carbohydrates: {props.data.nutrition?.carbohydrateContent}</div>
+                            <div className="p-2 d-flex flex-row">Fiber: {props.data.nutrition?.fiberContent}</div>
+                            <div className="p-2 d-flex flex-row">Protein: {props.data.nutrition?.proteinContent}</div>
+                            <div className="p-2 d-flex flex-row">Saturated Fat: {props.data.nutrition?.saturatedFatContent}</div>
+                            <div className="p-2 d-flex flex-row">Sodum: {props.data.nutrition?.sodiumContent}</div>
+                            <div className="p-2 d-flex flex-row">Fat: {props.data.nutrition?.fatContent}</div>
+                            <div className="p-2 d-flex flex-row">Unsaturated Fat: {props.data.nutrition?.unsaturatedFatContent}</div>
                         </div>
                     </div>
-                )
-            }
-            {
-                showPrompt && (
-                    <PromptBox close={closePrompt} message={message} redirect={redirect}></PromptBox>
                 )
             }
         </div>

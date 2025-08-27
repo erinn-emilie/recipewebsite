@@ -32,4 +32,27 @@ THEN, can start on kitchen
 		If it is, we set the userLiked field to the string 'true'~~
 
 Need error handling in python code for parsing!!!!!!!!!!!!
+	~~To start, if you enter a nonsensical url...~~
+	Need to make sure that parsing doesn't error out if a key doesn't exist
+	Need to get rid of doublesave and invaluser in saverecipe as it shouldn't be able to happen anymore
+
 Also users need to be able to unsave with the heart
+
+
+
+SITES THAT WORK (AS FAR AS IVE TESTED):
+	allrecipes
+	pinchofyum
+	modernhoney
+	sallysbakingaddiction
+	inquiringchef
+
+
+KNOWN ISSUES:
+	publish date in other info column isn't formatted
+	some sites (sallysbakingaddiction, inquiringchef) have the author listed as a long url, which is both not helpful and also messes up the look of the column
+		I think this has something to do with the way we parse the author name, it needs to use the @id field as a last resort if name field is not available
+	yield sometimes just shows a number, with no indication of what the number means
+	cooktime is formatted wrong
+	if parsing fails recipepython should send back a message of "FAILURE" but currently if it does homepage doesn't prompt the user or do anything about it\
+		also there are def some cases where recipepython will encounter unhandled errors, which won't shut the server or site down, but the user won't be notified

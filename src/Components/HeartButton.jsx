@@ -7,9 +7,13 @@ import '../Styles/HeartButton.css'
 
 const HeartButton = (props) => {
     const [isLiked, setIsLiked] = useState(props.data.userliked)
-    console.log(props.data.userliked)
 
     const apiurl = "http://localhost:5000/"
+
+    const saveRecipeCodes = {
+        "FAILURE": 0,
+        "SUCCESS": 1
+    }
 
 
     const handleClick = () => {
@@ -45,10 +49,10 @@ const HeartButton = (props) => {
                 .then(response => response.json())
                 .then(data => {
                     if (data.message == saveRecipeCodes.SUCCESS) {
-                        props.openprompt("The recipe has been saved to your files and your account!", false)
+                        props.openprompt("The recipe has been saved to your account!", false)
                     }
                     else {
-                        props.openprompt("The recipe has been saved to your files but something went wrong saving it to your account. Please try again later!", false)
+                        props.openprompt("Something went wrong saving the recipe to your account!", false)
                     }
                 })
         }
