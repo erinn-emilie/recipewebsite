@@ -1,6 +1,11 @@
-Also users need to be able to unsave with the heart
-
-MINI REcipe card for database
+CURRENT:
+	Be able to unsave recipes with the heart.
+	Go to top of page button on recipe database page and go to next page button.
+	set up preliminary look of kitchen (using placeholder images)
+	~~Also might redo the database:
+		Need to have a Users table that stores user account information
+		Need to have a Recipes table that stores information about all the recipes on the site
+		Need to have a RecipeBook table that stores what recipes each user has saved and notes about each recipe~~
 
 
 SITES THAT WORK (AS FAR AS IVE TESTED):
@@ -9,16 +14,26 @@ SITES THAT WORK (AS FAR AS IVE TESTED):
 	modernhoney
 	sallysbakingaddiction
 	inquiringchef
+	livewellbakeoften
+
+SITES THAT DONT WORK
+	inspiredtaste
 
 
 KNOWN ISSUES:
 	publish date in other info column isn't formatted
-	some sites (sallysbakingaddiction, inquiringchef) have the author listed as a long url, which is both not helpful and also messes up the look of the column
+	some sites (sallysbakingaddiction, inquiringchef, livewellbakeoften) have the author listed as a long url, which is both not helpful and also messes up the look of the column
 		I think this has something to do with the way we parse the author name, it needs to use the @id field as a last resort if name field is not available
 	yield sometimes just shows a number, with no indication of what the number means
 	cooktime is formatted wrong
 	if parsing fails recipepython should send back a message of "FAILURE" but currently if it does homepage doesn't prompt the user or do anything about it\
 		also there are def some cases where recipepython will encounter unhandled errors, which won't shut the server or site down, but the user won't be notified
+
+
+
+
+
+
 
 
 

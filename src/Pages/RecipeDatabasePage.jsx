@@ -18,7 +18,7 @@ const RecipeDatabasePage = () => {
     const [bigData, setBigData] = useState({})
     const [recipeOffset, setRecipeOffset] = useState(0)
     const [searchStr, setSearchStr] = useState("")
-    const [searchCol, setSearchCol] = useState("")
+    const [searchCol, setSearchCol] = useState("name")
 
     const [showPrompt, setShowPrompt] = useState(false)
     const [message, setMessage] = useState("")

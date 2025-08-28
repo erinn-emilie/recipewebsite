@@ -3,39 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\pages\\recipedatabasepage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\pages\\recipedatabasepage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\styles\\kitchenpage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\styles\\kitchenpage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\styles\\recipedatabasepage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\styles\\recipedatabasepage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\components\\heartbutton.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\components\\heartbutton.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\components\\minirecipecard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\components\\minirecipecard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\pages\\homepage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\pages\\homepage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8E400EB-71A4-4B57-8DF9-A56350D79E2C}|..\\recipepython\\recipepython.pyproj|C:\\Users\\Erinn\\source\\repos\\recipepython\\recipepython.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\components\\recipecard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\components\\recipecard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\styles\\heartbutton.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\styles\\heartbutton.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\styles\\recipecard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\styles\\recipecard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\src\\pages\\kitchenpage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|solutionrelative:src\\pages\\kitchenpage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9FBF7EAD-7E47-48B9-A4B5-3B4ECF5C10BA}|recipewebsite.esproj|c:\\users\\erinn\\source\\repos\\recipewebsite\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
@@ -49,17 +22,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 19,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
               "Title": "README.md",
               "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\README.md",
               "RelativeDocumentMoniker": "README.md",
               "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\README.md",
               "RelativeToolTip": "README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2025-08-25T18:57:45.299Z",
               "IsPinned": true,
@@ -119,119 +92,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HeartButton.jsx",
-              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Components\\HeartButton.jsx",
-              "RelativeDocumentMoniker": "src\\Components\\HeartButton.jsx",
-              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Components\\HeartButton.jsx",
-              "RelativeToolTip": "src\\Components\\HeartButton.jsx",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-08-27T19:14:50.027Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "HeartButton.css",
-              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Styles\\HeartButton.css",
-              "RelativeDocumentMoniker": "src\\Styles\\HeartButton.css",
-              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Styles\\HeartButton.css",
-              "RelativeToolTip": "src\\Styles\\HeartButton.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAPAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "KitchenPage.css",
+              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Styles\\KitchenPage.css",
+              "RelativeDocumentMoniker": "src\\Styles\\KitchenPage.css",
+              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Styles\\KitchenPage.css",
+              "RelativeToolTip": "src\\Styles\\KitchenPage.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-27T18:43:54.873Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HomePage.jsx",
-              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Pages\\HomePage.jsx",
-              "RelativeDocumentMoniker": "src\\Pages\\HomePage.jsx",
-              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Pages\\HomePage.jsx",
-              "RelativeToolTip": "src\\Pages\\HomePage.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-08-27T18:38:37.736Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "recipepython.py",
-              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipepython\\recipepython.py",
-              "RelativeDocumentMoniker": "..\\recipepython\\recipepython.py",
-              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipepython\\recipepython.py",
-              "RelativeToolTip": "..\\recipepython\\recipepython.py",
-              "ViewState": "AgIAAM4AAAAAAAAAAAAAAOoAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-08-27T18:25:55.67Z",
+              "WhenOpened": "2025-08-28T17:00:28.855Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "RecipeDatabasePage.css",
-              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Styles\\RecipeDatabasePage.css",
-              "RelativeDocumentMoniker": "src\\Styles\\RecipeDatabasePage.css",
-              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Styles\\RecipeDatabasePage.css",
-              "RelativeToolTip": "src\\Styles\\RecipeDatabasePage.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-27T18:08:00.711Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RecipeDatabasePage.jsx",
-              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Pages\\RecipeDatabasePage.jsx",
-              "RelativeDocumentMoniker": "src\\Pages\\RecipeDatabasePage.jsx",
-              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Pages\\RecipeDatabasePage.jsx",
-              "RelativeToolTip": "src\\Pages\\RecipeDatabasePage.jsx",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAAAGQAAABfAAAAAAAAAA==",
+              "Title": "KitchenPage.jsx",
+              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Pages\\KitchenPage.jsx",
+              "RelativeDocumentMoniker": "src\\Pages\\KitchenPage.jsx",
+              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Pages\\KitchenPage.jsx",
+              "RelativeToolTip": "src\\Pages\\KitchenPage.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-08-27T15:46:31.162Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MiniRecipeCard.jsx",
-              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Components\\MiniRecipeCard.jsx",
-              "RelativeDocumentMoniker": "src\\Components\\MiniRecipeCard.jsx",
-              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Components\\MiniRecipeCard.jsx",
-              "RelativeToolTip": "src\\Components\\MiniRecipeCard.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-08-27T17:39:06.96Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "RecipeCard.css",
-              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Styles\\RecipeCard.css",
-              "RelativeDocumentMoniker": "src\\Styles\\RecipeCard.css",
-              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Styles\\RecipeCard.css",
-              "RelativeToolTip": "src\\Styles\\RecipeCard.css",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAEsAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-27T18:04:21.088Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RecipeCard.jsx",
-              "DocumentMoniker": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Components\\RecipeCard.jsx",
-              "RelativeDocumentMoniker": "src\\Components\\RecipeCard.jsx",
-              "ToolTip": "C:\\Users\\Erinn\\source\\repos\\recipewebsite\\src\\Components\\RecipeCard.jsx",
-              "RelativeToolTip": "src\\Components\\RecipeCard.jsx",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAHIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-08-27T17:38:50.338Z",
+              "WhenOpened": "2025-08-28T16:59:06.906Z",
               "EditorCaption": ""
             }
           ]
