@@ -39,7 +39,7 @@ const NavBar = () => {
     return (
         <div className="navbar--container container-fluid d-flex flex-row">
             <Link className="navbar--link d-flex flex-column" to="/">Home</Link>
-            <Link className="navbar--link d-flex flex-column" to="/recipes">Recipe Book</Link>  
+            <Link className="navbar--link d-flex flex-column" to="/recipes">Recipe Database</Link>  
             {
                 !validUser && (
                     <Link className="ms-auto navbar--link d-flex flex-column" to="/portal">Log-In/Sign-Up</Link>

@@ -4,7 +4,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     position: relative;
     transition: transform 0.2s ease-in-out;
 }
@@ -17,9 +16,9 @@
     position: relative;
     width: 25px; /* Half the container width */
     height: 25px; /* Half the container height */
-    background-color: #ccc; /* Default color */
+    background-color: #818488; /* Default color */
     transform: rotate(-45deg);
-    transition: background-color 0.2s ease-in-out;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
     .heart-icon::before,
@@ -28,9 +27,8 @@
         position: absolute;
         width: 25px; /* Same as heart-icon width */
         height: 25px; /* Same as heart-icon height */
-        background-color: #ccc; /* Default color */
+        background-color: #818488; /* Default color */
         border-radius: 50%;
-        transition: background-color 0.2s ease-in-out;
     }
 
     .heart-icon::before {
@@ -46,5 +44,5 @@
 .heart-button-container.liked .heart-icon,
 .heart-button-container.liked .heart-icon::before,
 .heart-button-container.liked .heart-icon::after {
-    background-color: red; /* Liked state color */
+    background-color: #d74a49;
 }

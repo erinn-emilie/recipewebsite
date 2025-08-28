@@ -15,12 +15,7 @@ const HomePage = () => {
     const [message, setMessage] = useState("")
     const [redirect, setRedirect] = useState(false)
 
-
-    //useEffect(() => {
-    //    if (Cookies.get("currenturl") != null) {
-    //        handleFetch(Cookies.get("currenturl"))
-    //    }
-    //})
+    const apiurl = "http://localhost:5000/parse-recipe"
 
 
     const closePrompt = () => {
@@ -35,8 +30,6 @@ const HomePage = () => {
         setRedirect(redirect)
     }
 
-    const apiurl = "http://localhost:5000/parse-recipe"
-
 
     const handleChange = (event) => {
         setCurUrl(event.target.value)
@@ -44,10 +37,6 @@ const HomePage = () => {
 
     const handleSubmit = () => {
         handleFetch(curUrl)
-    }
-
-    const badParseCodes = {
-        "INVALURL": 0
     }
 
 
@@ -67,7 +56,7 @@ const HomePage = () => {
             body: JSON.stringify({ "url": url, "username": username }),
         })
         .then(response => response.json())
-        .then(data => { 
+        .then(data => {
             if ("message" in data) {
                 openPrompt("There seems to be a problem accessing that site. Please check your url and try again!", false)
             }
@@ -89,7 +78,7 @@ const HomePage = () => {
                 <p>About us section under construction. Check back later!</p>
             </div>
             <div className="container-fluid d-flex flex-column body--container">
-                <div className="p-2 flex-row">Enter a url below to get a neat, clear version of the recipe!</div>
+                <div className="p-2 d-flex flex-row">Enter a url below to get a neat, clear version of the recipe!</div>
                 <div className="p-2 d-flex flex-row url--div">
                     <input className="p-2 rounded flex-column url--input" onChange={handleChange} type="text"></input>
                     <div className="flex-column rounded p-2 custom--btn" role="button" onClick={handleSubmit}>Submit</div>
@@ -106,3 +95,4 @@ const HomePage = () => {
 }
 
 export default HomePage
+

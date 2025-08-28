@@ -62,3 +62,30 @@
         background-color: #a49e97;
         color: black;
     }
+
+
+.minirecipe--card {
+    background-color: #51a16a;
+    width: 70%;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: fit-content;
+    min-height: 10%;
+    justify-content: start;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.minirecipe--card:hover{
+    transform: scale(1.1)
+}
+
+.mini--header {
+    width: 90%;
+    margin: 2%;
+    padding: 2%;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+}
+

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Cookies from "js-cookie"
 import '../Styles/HeartButton.css'
 
@@ -6,7 +6,7 @@ import '../Styles/HeartButton.css'
 
 
 const HeartButton = (props) => {
-    const [isLiked, setIsLiked] = useState(props.data.userliked)
+    const [isLiked, setIsLiked] = useState(false)
 
     const apiurl = "http://localhost:5000/"
 
@@ -15,11 +15,21 @@ const HeartButton = (props) => {
         "SUCCESS": 1
     }
 
+    useEffect(() => {
+        if (props.data.userliked == "true") {
+            setIsLiked(true)
+        }
+        else {
+            setIsLiked(false)
+        }
+    },[props])
+
 
     const handleClick = () => {
         if (Cookies.get("validuser") == "true") {
             setIsLiked(!isLiked)
             if (!isLiked == true) {
+                props.data.userliked = "true"
                 saveToDatabase()
             }
             else {
@@ -39,6 +49,7 @@ const HeartButton = (props) => {
                 "userid": Cookies.get("userid"),
                 "username": Cookies.get("username")
             }
+            console.log(data)
             fetch(url, {
                 method: "POST",
                 headers: {
@@ -59,7 +70,7 @@ const HeartButton = (props) => {
     }
 
     return (
-        <div className={`heart-button-container ${isLiked == "true" ? 'liked' : ''}`} onClick={handleClick}>
+        <div className={`heart-button-container ${isLiked ? 'liked' : ''}`} onClick={handleClick}>
             <span className="heart-icon"></span>
         </div>
     )
