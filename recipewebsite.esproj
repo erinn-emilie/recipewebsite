@@ -11,5 +11,7 @@
   <ItemGroup>
     <Folder Include="src\Components\" />
     <Folder Include="src\Context\" />
+    <Folder Include="src\KitchenComponents\" />
+    <Folder Include="src\KitchenStyles\" />
   </ItemGroup>
 </Project>

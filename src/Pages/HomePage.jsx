@@ -78,7 +78,7 @@ const HomePage = () => {
                 <p>About us section under construction. Check back later!</p>
             </div>
             <div className="container-fluid d-flex flex-column body--container">
-                <div className="p-2 d-flex flex-row">Enter a url below to get a neat, clear version of the recipe!</div>
+                <div className="p-2 d-flex flex-row mt-2 fw-bold">Enter the url of a recipe to see the ingredients and instructions in a simple, clean list!</div>
                 <div className="p-2 d-flex flex-row url--div">
                     <input className="p-2 rounded flex-column url--input" onChange={handleChange} type="text"></input>
                     <div className="flex-column rounded p-2 custom--btn" role="button" onClick={handleSubmit}>Submit</div>

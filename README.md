@@ -1,11 +1,42 @@
-CURRENT:
-	Be able to unsave recipes with the heart.
-	Go to top of page button on recipe database page and go to next page button.
-	set up preliminary look of kitchen (using placeholder images)
-	~~Also might redo the database:
-		Need to have a Users table that stores user account information
-		Need to have a Recipes table that stores information about all the recipes on the site
-		Need to have a RecipeBook table that stores what recipes each user has saved and notes about each recipe~~
+
+    Make recipe book look like it’s sitting on counter
+    Change mini cards, not green, square, image instead of ingredients
+    Five rows of 5 mini cards (maybe 10)
+    Include image frame with image at bottom of big cards
+    Add scroll to top and bottom buttons in database
+    Each part of the kitchen should be its own component 
+    Recipe book looks like a book, small buttons in corner of screen that are flip page buttons, 
+        button at top right to close book and top left to change to grid view, 
+        small word “Expand” in bold at bottom of both pages that when clicked on takes to full recipe card
+    Grid view will look like recipe database, should have a search bar at top
+    Change how search looks, dropdown menu especially 
+    Add filter by form
+    Change prompt box so it handles its own display
+    Recipes table needs to have an img_url field
+    Pages table needs to be renamed to RecipePages
+    RecipePages table should have a date saved as well as notes
+    Kitchen table with field for primary user and four extra users and a field that indicates if the kitchen has more than one person in it 
+    Each user should have a foreign key with the kitchen they’re in 
+    Instead of querying for users likes when looking at saved recipes should query for kitchen likes, with toggle to show just your likes
+    Each user needs personal randomly generated kitchen code (person can use this to add you to their kitchen)
+    Achievements Table and User Achievements Table
+    Get actual good assets for kitchen
+    Scrapbook (users should be able to post pictures of their food with links to the recipes they used, notes, and a rating, others in the kitchen can also rate the food and write notes)
+    Let users add recipes to personal kitchen
+    Let users leave others kitchens 
+
+
+    Refactor website code
+    Improve/test recipe parsing
+    Look into making sure database is secure
+    Tweak layout/colors
+    About Us
+    Account management page (change username/password/email, set first and last name, set birthday, delete account)
+    Figure out email verification 
+    Figure out process for letting users upload to site database 
+
+
+    then figure out how to properly deploy a code base and database and we r cooking (literally)
 
 
 SITES THAT WORK (AS FAR AS IVE TESTED):
@@ -26,8 +57,9 @@ KNOWN ISSUES:
 		I think this has something to do with the way we parse the author name, it needs to use the @id field as a last resort if name field is not available
 	yield sometimes just shows a number, with no indication of what the number means
 	cooktime is formatted wrong
-	if parsing fails recipepython should send back a message of "FAILURE" but currently if it does homepage doesn't prompt the user or do anything about it\
+	if parsing fails recipepython should send back a message of "FAILURE" but currently if it does homepage doesn't prompt the user or do anything about it
 		also there are def some cases where recipepython will encounter unhandled errors, which won't shut the server or site down, but the user won't be notified
+    a lot of recipes don't correclty parse cuisine or category for some reason
 
 
 
