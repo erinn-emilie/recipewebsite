@@ -72,9 +72,6 @@ const RecipeCard = (props) => {
     }
 
     if (props.data.ingredients === undefined) {
-        //const possibledata = Cookies.get("currentrecipe")
-        //console.log(possibledata)
-        //if (possibledata === undefined) {
         props.data.name = "Recipe Name"
         props.data.yield = "One simple recipe"
         props.data.cook_time = "A few seconds"
@@ -95,10 +92,6 @@ const RecipeCard = (props) => {
         props.data.reviews = "1! (me)"
         props.data.rating = "5.0"
         props.data.userliked = "false"
-        //}
-        //else {
-        //    props.data = possibledata
-        //}
     }
 
     return (

@@ -89,3 +89,8 @@
     font-size: large;
 }
 
+.recipe--image {
+    height: 70%;
+    width: 70%;
+}
+

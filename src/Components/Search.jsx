@@ -7,18 +7,14 @@ const Search = (props) => {
     const [recipeOffset, setRecipeOffset] = useState(0)
     const [searchStr, setSearchStr] = useState("")
     const [searchCol, setSearchCol] = useState("name")
+    const [searchFilter, setSearchFilter] = useState({ "category": "", "cuisine": "" })
 
 
 
-    const apiurl = "http://localhost:5000/"
+    const apiurl = "http://localhost:5000/fetch-data"
 
     useEffect(() => {
-        if (props.scope == "database") {
-            handleFetchAll()
-        }
-        if (props.scope == "user") {
-            handleFetchUserSaves()
-        }
+        fetchData()
     }, [])
 
     const handleChange = (event) => {
@@ -30,99 +26,28 @@ const Search = (props) => {
     }
 
     const handleSubmit = async () => {
-        if (props.scope == "database") {
-            if (searchStr == "") {
-                handleFetchAll()
-            }
-            else {
-                handleFetchSome()
-            }
-        }
+        fetchData()
+    }
+
+
+    const fetchData = async () => {
+        let username = Cookies.get("username")
+        console.log(username)
+        let savedRecipesOnly = "false"
         if (props.scope == "user") {
-            if (searchStr == "") {
-                handleFetchUserSaves()
-            }
-            else {
-                handleFetchSomeUserSaves()
-            }
+            savedRecipesOnly = "true"
         }
-    }
-
-
-    const handleFetchUserSaves = async () => {
-        let username = Cookies.get("username")
-        let url = apiurl + "fetch-saved-recipes"
-        fetch(url, {
+        fetch(apiurl, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ "username": username }),
+            body: JSON.stringify({ "column": searchCol, "key": searchStr, "filter": searchFilter, "offset": recipeOffset, "savedRecipesOnly": savedRecipesOnly, "username": username }),
         })
             .then(response => response.json())
             .then(data => {
-                props.updatedata(data["data"], data["count"])
-
+                props.updatedata(data["list"])
             })
-    }
-
-    const handleFetchSomeUserSaves = async () => {
-        let username = Cookies.get("username")
-        let url = apiurl + "fetch-certain-saved-recipes"
-        fetch(url, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ "username": username }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                props.updatedata(data["data"], data["count"])
-            })
-    }
-
-
-
-    const handleFetchSome = async () => {
-        let url = apiurl + "fetch-certain-recipes"
-        let username = ""
-        if (Cookies.get("validuser") == "true") {
-            username = Cookies.get("username")
-        }
-        fetch(url, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ "offset": recipeOffset, "username": username, "key": searchStr, "col": searchCol }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                props.updatedata(data)
-            }
-            )
-    }
-
-    const handleFetchAll = async () => {
-        let username = ""
-        let url = apiurl + "fetch-all-recipes"
-        if (Cookies.get("validuser") == "true") {
-            username = Cookies.get("username")
-        }
-        fetch(url, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ "offset": recipeOffset, "username": username }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                props.updatedata(data)
-
-            }
-            )
     }
 
     return (

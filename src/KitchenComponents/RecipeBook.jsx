@@ -16,7 +16,7 @@ const RecipeBook = (props) => {
     const [colThreeData, setColThreeData] = useState([])
 
 
-    const apiurl = "http://localhost:5000/fetch-saved-recipes"
+    const apiurl = "http://localhost:5000/fetch-for-book"
 
     const nextPage = () => {
         setPageOneID(pageOneID + 2)
@@ -33,7 +33,7 @@ const RecipeBook = (props) => {
         handleFetch()
     }, [])
 
-    const updateColData = (data, count) => {
+    const updateColData = (data) => {
         setColOneData(data.slice(0, 9))
         setColTwoData(data.slice(10, 19))
         setColThreeData(data.slice(20, 29))
@@ -51,7 +51,7 @@ const RecipeBook = (props) => {
         })
             .then(response => response.json())
             .then(data => {
-                setRecipeList(data["data"])
+                setRecipeList(data["list"])
                 setRecipeCount(data["count"])
             })
     }
@@ -68,6 +68,9 @@ const RecipeBook = (props) => {
                                     (pageOneID < recipeCount) && (
                                         <>
                                             <div className="d-flex flex-row justify-content-center mt-3 mb-3 fw-bolder">{recipeList[pageOneID].name}</div>
+                                            {
+                                                <img className="recipe--img" src={recipeList[pageOneID]?.img_url}></img>
+                                            }
                                             <div className="d-flex flex-row flex-wrap ms-2">
                                                 {
                                                     recipeList[pageOneID].ingredients.map((ingredient) => (
@@ -100,6 +103,7 @@ const RecipeBook = (props) => {
                                     (pageTwoID < recipeCount) && (
                                         <>
                                             <div className="d-flex flex-row justify-content-center mt-3 mb-3 fw-bolder ">{recipeList[pageTwoID].name}</div>
+                                            <img className="recipe--img" src={recipeList[pageTwoID].img_url}></img>
                                             <div className="d-flex flex-row flex-wrap ms-2 ">
                                                 {
                                                     recipeList[pageTwoID].ingredients.map((ingredient) => (

@@ -39,6 +39,15 @@
     then figure out how to properly deploy a code base and database and we r cooking (literally)
 
 
+
+When searching the database the data should be sent as follows:
+    {
+        "column": nameOfColumn, // Recipe Name, Author, Site Name
+        "filter": {"cuisine": nameOfCuisine, "category": nameOfCategory}, 
+        "offset": offset, // the number of rows to offset before searching
+        "username": username, // the user thats logged in
+        "savedRecipesOnly": state // only include recipes saved by the user
+    }
 SITES THAT WORK (AS FAR AS IVE TESTED):
 	allrecipes
 	pinchofyum
@@ -46,6 +55,8 @@ SITES THAT WORK (AS FAR AS IVE TESTED):
 	sallysbakingaddiction
 	inquiringchef
 	livewellbakeoften
+    butternutbakeryblog
+    preppykitchen
 
 SITES THAT DONT WORK
 	inspiredtaste
@@ -59,7 +70,7 @@ KNOWN ISSUES:
 	cooktime is formatted wrong
 	if parsing fails recipepython should send back a message of "FAILURE" but currently if it does homepage doesn't prompt the user or do anything about it
 		also there are def some cases where recipepython will encounter unhandled errors, which won't shut the server or site down, but the user won't be notified
-    a lot of recipes don't correclty parse cuisine or category for some reason
+    a lot of recipes don't correclty parse cuisine, category, ratings, or reviews :0
 
 
 

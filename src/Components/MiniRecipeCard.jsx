@@ -15,19 +15,9 @@ const MiniRecipeCard = (props) => {
                 <div className="d-flex flex-row justify-content-center text-center">Website: {props.data.site_name}</div>
                 <div className="d-flex flex-row justify-content-center text-center">Author: {props.data.author}</div>
                 <div title="Score is equal to the total number of reviews multipled by the rating (1.0-5.0)" className="d-flex flex-row justify-content-center text-center">Score: {props.data?.weighted_rating}</div>
-                <div className="d-flex flex-column">
-                    {
-                        props.data.ingredients.map((ingredient, num) => (
-                            <>
-                                {
-                                    num < 5 && (
-                                        <div className="me-1 d-flex flex-row">*{ingredient}</div>
-                                    )
-                                }
-                            </>
-                        ))
-                    }
-                    <div className="me-1 d-flex flex-row fw-bold">Click to see more ingredients!</div>
+                <div className="d-flex flex-column align-items-center">
+                    <img className="recipe--image" src={props.data?.img_url}></img>
+                    <div className="me-1 d-flex flex-row fw-bold">Click to see instructions and ingredients!</div>
                 </div>
             </div>
    
