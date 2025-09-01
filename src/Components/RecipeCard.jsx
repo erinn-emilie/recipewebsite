@@ -1,10 +1,12 @@
 import '../Styles/RecipeCard.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { pdf } from '@react-pdf/renderer'
 import { saveAs } from 'file-saver'
 import RecipeDocument from './RecipeDocument'
 import HeartButton from './HeartButton'
 import Cookies from "js-cookie"
+import PromptContext from '../Context/PromptContext'
+
 
 
 
@@ -15,6 +17,9 @@ const RecipeCard = (props) => {
     const [finishedSteps, setFinishedSteps] = useState([])
     const [finishedIngs, setFinishedIngs] = useState([])
     const [nutrition, setNutrition] = useState(false)
+
+    const promptToken = useContext(PromptContext)
+
 
 
     useEffect(() => {
@@ -64,10 +69,10 @@ const RecipeCard = (props) => {
         const filename = props.data.name + ".pdf"
         saveAs(blob, filename)
         if (Cookies.get("validuser") != "true") {
-            props.openprompt("The recipe has been saved to your files! Sign up or log in to your account to save it to your kitchen!", true)
+            promptToken.openPrompt("The recipe has been saved to your files! Sign up or log in to your account to save it to your kitchen!")
         }
         else {
-            props.openprompt("The recipe has been saved to your files! To save it to your kitchen, please click the heart!", false)
+            promptToken.openPrompt("The recipe has been saved to your files! To save it to your kitchen, please click the heart!")
         }
     }
 
@@ -97,7 +102,7 @@ const RecipeCard = (props) => {
     return (
         <div className="rounded recipe--card container-fluid">
             <div className="d-flex flex-row justify-content-center align-items-center">
-                <HeartButton data={props.data} openprompt={props.openprompt}></HeartButton>
+                <HeartButton data={props.data}></HeartButton>
                 <h1 className="p-2 recipe--header mt-3">{props.data?.name}</h1>
                 <div onClick={() => saveRecipe()} role="button" className="p-2 d-flex rounded mt-2 custom--btn">Save as PDF</div>
                 {
@@ -173,6 +178,7 @@ const RecipeCard = (props) => {
                     <div className="p-2 d-flex">Reviews on {props.data?.site_name}: {props.data?.reviews}</div>
                 </div>
             </div>
+            <div className="d-flex flex-row justify-content-center">Link to Original Recipe: <a className="ms-2"href={props.data?.url}>{props.data?.url}</a></div>
             {
                 nutrition && (
                     <div className="d-flex flex-column justify-content-center align-items-center">

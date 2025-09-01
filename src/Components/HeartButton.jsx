@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import PromptContext from '../Context/PromptContext'
 import Cookies from "js-cookie"
 import '../Styles/HeartButton.css'
 
@@ -7,6 +8,8 @@ import '../Styles/HeartButton.css'
 
 const HeartButton = (props) => {
     const [isLiked, setIsLiked] = useState(false)
+
+    const promptToken = useContext(PromptContext)
 
     const apiurl = "http://localhost:5000/"
 
@@ -37,7 +40,7 @@ const HeartButton = (props) => {
             }
         }
         else {
-            props.openprompt("To save a recipe to your kitchen, please log in or create an account!", true)
+            promptToken.openPrompt("To save a recipe to your kitchen, please log in or create an account!")
         }
     }
 
@@ -60,10 +63,10 @@ const HeartButton = (props) => {
                 .then(response => response.json())
                 .then(data => {
                     if (data.message == saveRecipeCodes.SUCCESS) {
-                        props.openprompt("The recipe has been saved to your account!", false)
+                        promptToken.openPrompt("The recipe has been saved to your account!")
                     }
                     else {
-                        props.openprompt("Something went wrong saving the recipe to your account!", false)
+                        promptToken.openPrompt("Something went wrong saving the recipe to your account!")
                     }
                 })
         }

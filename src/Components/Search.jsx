@@ -6,8 +6,11 @@ const Search = (props) => {
 
     const [recipeOffset, setRecipeOffset] = useState(0)
     const [searchStr, setSearchStr] = useState("")
-    const [searchCol, setSearchCol] = useState("name")
-    const [searchFilter, setSearchFilter] = useState({ "category": "", "cuisine": "" })
+    const [authorStr, setAuthorStr] = useState("")
+    const [websiteStr, setWebsiteStr] = useState("")
+    const [cuisineStr, setCuisineStr] = useState("")
+    const [categoryStr, setCategoryStr] = useState("")
+    const [filterPrompt, setFilterPrompt] = useState(false)
 
 
 
@@ -17,12 +20,28 @@ const Search = (props) => {
         fetchData()
     }, [])
 
-    const handleChange = (event) => {
+    const handleSearchChange = (event) => {
         setSearchStr(event.target.value)
     }
 
-    const handleSelectChange = (event) => {
-        setSearchCol(event.target.value)
+    const handleAuthorChange = (event) => {
+        setAuthorStr(event.target.value)
+    }
+
+    const handleWebsiteChange = (event) => {
+        setWebsiteStr(event.target.value)
+    }
+
+    const handleCuisineChange = (event) => {
+        setCuisineStr(event.target.value)
+    }
+
+    const handleCategoryChange = (event) => {
+        setCategoryStr(event.target.value)
+    }
+
+    const toggleFilters = () => {
+        setFilterPrompt(!filterPrompt)
     }
 
     const handleSubmit = async () => {
@@ -32,35 +51,65 @@ const Search = (props) => {
 
     const fetchData = async () => {
         let username = Cookies.get("username")
-        console.log(username)
         let savedRecipesOnly = "false"
         if (props.scope == "user") {
             savedRecipesOnly = "true"
         }
+        console.log(authorStr)
         fetch(apiurl, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ "column": searchCol, "key": searchStr, "filter": searchFilter, "offset": recipeOffset, "savedRecipesOnly": savedRecipesOnly, "username": username }),
+            body: JSON.stringify({ "name": searchStr, "author": authorStr, "site_name": websiteStr, "cuisine": cuisineStr, "category": categoryStr, "username": username, "savedRecipesOnly": savedRecipesOnly, "offset": recipeOffset}),
         })
             .then(response => response.json())
             .then(data => {
-                props.updatedata(data["list"])
+                props.updatedata(data)
             })
     }
 
     return (
         <>
-            <div className="p-2 d-flex flex-row search--div">
-                <select class="search--criteria rounded" value={searchCol} onChange={handleSelectChange}>
-                    <option className="option--div" value="name">Search by Name</option>
-                    <option className="option--div" value="author">Search by Author</option>
-                    <option className="option--div" value="site_name">Search by Website</option>
-                </select>
-                <input className="p-2 rounded flex-column search--input" type="text" onChange={handleChange}></input>
-                <div className="flex-column rounded p-2 search--btn" role="button" onClick={handleSubmit}>Search</div>
-            </div>
+            {
+                filterPrompt && (
+                    <div className="d-flex flex-column filter--prompt rounded">
+                        <div className="d-flex flex-row align-items-center justify-content-center mb-5">
+                            <div className="d-flex flex-column me-5 fw-bold">Enter in the search criteria you would like to use and press save!</div>
+                            <div role="button" onClick={toggleFilters} className="d-flex flex-column text-center rounded p-1 search--btn">Save and Close</div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center justify-content-center mb-3">
+                            <label className="d-flex flex-column me-3">Author</label>
+                            <input value={authorStr} onChange={handleAuthorChange} className="d-flex flex-column rounded" type="text" />
+                            <div role="button" onClick={() => setAuthorStr("")} className="text-danger ms-2">Clear</div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center justify-content-center mb-3">
+                            <label className="d-flex flex-column me-3">Website</label>
+                            <input value={websiteStr} onChange={handleWebsiteChange} className="d-flex flex-column rounded" type="text" />
+                            <div role="button" onClick={() => setWebsiteStr("")} className="text-danger ms-2">Clear</div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center justify-content-center mb-3">
+                            <label className="d-flex flex-column me-3">Cuisine</label>
+                            <input value={cuisineStr} onChange={handleCuisineChange} className="d-flex flex-column rounded" type="text" />
+                            <div role="button" onClick={() => setCuisineStr("")} className="text-danger ms-2">Clear</div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center justify-content-center">
+                            <label className="d-flex flex-column me-3">Category</label>
+                            <input value={categoryStr} onChange={handleCategoryChange} className="d-flex flex-column rounded" type="text" />
+                            <div role="button" onClick={() => setCategoryStr("")} className="text-danger ms-2">Clear</div>
+                        </div>
+                    </div>
+                )
+            }
+            {
+                !filterPrompt && (
+                    <div className="p-2 d-flex flex-row search--div">
+                        <div className="flex-column rounded p-2 search--btn me-2" role="button" onClick={toggleFilters}>Toggle Filters</div>
+                        <input className="p-2 rounded flex-column search--input" type="text" onChange={handleSearchChange}></input>
+                        <div className="flex-column rounded p-2 search--btn" role="button" onClick={handleSubmit}>Search</div>
+                    </div>
+                )
+            }
         </>
     )
 }

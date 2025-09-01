@@ -1,8 +1,8 @@
-import { useState,useEffect } from 'react'
+import { useState,useContext } from 'react'
 import RecipeCard from '../Components/RecipeCard'
 import '../Styles/HomePage.css'
 import Cookies from "js-cookie"
-import PromptBox from '../Components/PromptBox'
+import PromptContext from '../Context/PromptContext'
 
 
 
@@ -11,24 +11,9 @@ const HomePage = () => {
 
     const [curUrl, setCurUrl] = useState("")
     const [recipeData, setRecipeData] = useState({})
-    const [showPrompt, setShowPrompt] = useState(false)
-    const [message, setMessage] = useState("")
-    const [redirect, setRedirect] = useState(false)
+    const promptToken = useContext(PromptContext)
 
     const apiurl = "http://localhost:5000/parse-recipe"
-
-
-    const closePrompt = () => {
-        setShowPrompt(false)
-        setMessage("")
-        setRedirect(false)
-    }
-
-    const openPrompt = (message, redirect) => {
-        setShowPrompt(true)
-        setMessage(message)
-        setRedirect(redirect)
-    }
 
 
     const handleChange = (event) => {
@@ -58,7 +43,7 @@ const HomePage = () => {
         .then(response => response.json())
         .then(data => {
             if ("message" in data) {
-                openPrompt("There seems to be a problem accessing that site. Please check your url and try again!", false)
+                promptToken.openPrompt("There seems to be a problem accessing that site. Please check your url and try again!")
             }
             else {
                 data = {
@@ -83,13 +68,8 @@ const HomePage = () => {
                     <input className="p-2 rounded flex-column url--input" onChange={handleChange} type="text"></input>
                     <div className="flex-column rounded p-2 custom--btn" role="button" onClick={handleSubmit}>Submit</div>
                 </div>
-                <RecipeCard openprompt={openPrompt} closeprompt={closePrompt} data={recipeData}></RecipeCard>
+                <RecipeCard data={recipeData}></RecipeCard>
             </div>
-            {
-                showPrompt && (
-                    <PromptBox close={closePrompt} redirect={redirect} message={message}></PromptBox>
-                )
-            }
         </div>
     )
 }

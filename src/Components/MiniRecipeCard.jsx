@@ -3,12 +3,13 @@ import HeartButton from './HeartButton'
 
 
 
+
 const MiniRecipeCard = (props) => {
 
     return (
         <div role="button" onClick={()=>props.opencard(props.data)} className="minirecipe--card container-fluid rounded">
             <div className="d-flex flex-row justify-content-center align-items-center mt-2">
-                <HeartButton data={props.data} openprompt={props.openprompt}></HeartButton>
+                <HeartButton data={props.data}></HeartButton>
                 <div className="mini--header">{props.data?.name}</div>
             </div>
             <div className="d-flex flex-column justify-content-center mb-2">
@@ -16,7 +17,6 @@ const MiniRecipeCard = (props) => {
                 <div className="d-flex flex-row justify-content-center text-center">Author: {props.data.author}</div>
                 <div title="Score is equal to the total number of reviews multipled by the rating (1.0-5.0)" className="d-flex flex-row justify-content-center text-center">Score: {props.data?.weighted_rating}</div>
                 <div className="d-flex flex-column align-items-center">
-                    <img className="recipe--image" src={props.data?.img_url}></img>
                     <div className="me-1 d-flex flex-row fw-bold">Click to see instructions and ingredients!</div>
                 </div>
             </div>

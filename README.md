@@ -48,6 +48,13 @@ When searching the database the data should be sent as follows:
         "username": username, // the user thats logged in
         "savedRecipesOnly": state // only include recipes saved by the user
     }
+
+    name
+    author
+    website
+    cuisine
+    category
+
 SITES THAT WORK (AS FAR AS IVE TESTED):
 	allrecipes
 	pinchofyum
@@ -57,9 +64,11 @@ SITES THAT WORK (AS FAR AS IVE TESTED):
 	livewellbakeoften
     butternutbakeryblog
     preppykitchen
+    maplewoodroad
 
 SITES THAT DONT WORK
 	inspiredtaste
+    simplyrecipes
 
 
 KNOWN ISSUES:
@@ -71,6 +80,7 @@ KNOWN ISSUES:
 	if parsing fails recipepython should send back a message of "FAILURE" but currently if it does homepage doesn't prompt the user or do anything about it
 		also there are def some cases where recipepython will encounter unhandled errors, which won't shut the server or site down, but the user won't be notified
     a lot of recipes don't correclty parse cuisine, category, ratings, or reviews :0
+    sign up page looks wonky
 
 
 
