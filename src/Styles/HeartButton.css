@@ -41,8 +41,20 @@
         top: 0;
     }
 
-.heart-button-container.liked .heart-icon,
-.heart-button-container.liked .heart-icon::before,
-.heart-button-container.liked .heart-icon::after {
-    background-color: #d74a49;
+.heart-button-container.redheart .heart-icon,
+.heart-button-container.redheart .heart-icon::before,
+.heart-button-container.redheart .heart-icon::after {
+    background-color: #d74a49; /*liked color*/
+}
+
+.heart-button-container.purpleheart .heart-icon,
+.heart-button-container.purpleheart .heart-icon::before,
+.heart-button-container.purpleheart .heart-icon::after {
+    background-color: #bdb2ff; /*liked color*/
+}
+
+.heart-button-container.greyheart .heart-icon,
+.heart-button-container.greyheart .heart-icon::before,
+.heart-button-container.greyheart .heart-icon::after {
+    background-color: #818488; /*liked color*/
 }

@@ -7,7 +7,8 @@ import '../Styles/HeartButton.css'
 
 
 const HeartButton = (props) => {
-    const [isLiked, setIsLiked] = useState(false)
+    const [likedState, setLikedState] = useState("none")
+    const [heartColor, setHeartColor] = useState("greyheart")
 
     const promptToken = useContext(PromptContext)
 
@@ -19,24 +20,30 @@ const HeartButton = (props) => {
     }
 
     useEffect(() => {
-        if (props.data.userliked == "true") {
-            setIsLiked(true)
+        if (props.data.savestate == "user") {
+            setLikedState("user")
+            setHeartColor("redheart")
+        }
+        else if (props.data.savestate == "kitchen") {
+            setLikedState("kitchen")
+            setHeartColor("purpleheart")
         }
         else {
-            setIsLiked(false)
+            setLikedState("none")
+            setHeartColor("greyheart")
         }
     },[props])
 
 
     const handleClick = () => {
         if (Cookies.get("validuser") == "true") {
-            setIsLiked(!isLiked)
-            if (!isLiked == true) {
-                props.data.userliked = "true"
+            if (likedState == "none" || likedState == "kitchen") {
                 saveToDatabase()
+                setLikedState("user")
+                props.data.savestate = "user"
             }
-            else {
-                //removeFromDatabase()
+            if (likedState == "user") {
+                // Delete
             }
         }
         else {
@@ -73,7 +80,7 @@ const HeartButton = (props) => {
     }
 
     return (
-        <div className={`heart-button-container ${isLiked ? 'liked' : ''}`} onClick={handleClick}>
+        <div className={`heart-button-container ${heartColor}`} onClick={handleClick}>
             <span className="heart-icon"></span>
         </div>
     )

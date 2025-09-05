@@ -32,6 +32,7 @@ const NavBar = () => {
         Cookies.set('validuser', 'false', { expires: 1, path: '/' })
         Cookies.set('username', "", { expires: 1, path: '/' })
         Cookies.set('userid', -1, { expires: 1, path: '/' })
+        Cookies.set('email', "", { expires: 1, path: '/' })
         setValidUser(false)
         authToken.updateAuth("false")
     }
@@ -49,6 +50,7 @@ const NavBar = () => {
                 validUser && (
                     <>
                         <Link className="navbar--link d-flex flex-column" to="/kitchen">Kitchen</Link>
+                        <Link className="navbar--link d-flex flex-column" to="/account">Account</Link>
                         <div onClick={logOut} role = "button" className="ms-auto navbar--link d-flex flex-column">Log Out</div>
                     </>
                 )

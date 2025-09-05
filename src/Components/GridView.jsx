@@ -44,21 +44,21 @@ const GridView = (props) => {
                             <div className="d-flex flex-column column--div">
                                 {
                                     props.colone?.map((data) => (
-                                        <MiniRecipeCard opencard={openBigCard} openprompt={openPrompt} closeprompt={closePrompt} data={data}></MiniRecipeCard>
+                                        <MiniRecipeCard opencard={openBigCard}  data={data}></MiniRecipeCard>
                                     ))
                                 }
                             </div>
                             <div className="d-flex flex-column column--div">
                                 {
                                     props.coltwo?.map((data) => (
-                                        <MiniRecipeCard opencard={openBigCard} openprompt={openPrompt} closeprompt={closePrompt} data={data}></MiniRecipeCard>
+                                        <MiniRecipeCard opencard={openBigCard} data={data}></MiniRecipeCard>
                                     ))
                                 }
                             </div>
                             <div className="d-flex flex-column column--div">
                                 {
                                     props.colthree?.map((data) => (
-                                        <MiniRecipeCard opencard={openBigCard} openprompt={openPrompt} closeprompt={closePrompt} data={data}></MiniRecipeCard>
+                                        <MiniRecipeCard opencard={openBigCard} data={data}></MiniRecipeCard>
                                     ))
                                 }
                             </div>
@@ -72,7 +72,7 @@ const GridView = (props) => {
                         <div className="d-flex flex-column align-items-center">
                             <div role="button" onClick={() => closeBigCard()} className="d-flex flex-row justify-content-center text-center close--btn rounded">Close Card</div>
                             <div className="d-flex flex-row">
-                                <RecipeCard openprompt={openPrompt} closeprompt={closePrompt} data={bigData}></RecipeCard>
+                                <RecipeCard data={bigData}></RecipeCard>
                             </div>
                         </div>
                     </div>

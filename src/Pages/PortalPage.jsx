@@ -103,6 +103,7 @@ const PortalPage = () => {
                     Cookies.set('validuser', 'true', { expires: 1, path: '/' })              
                     Cookies.set('username', username, { expires: 1, path: '/' }) 
                     Cookies.set('userid', data.userid, { expires: 1, path: '/' })
+                    Cookies.set('email', data.email, { expires: 1, path: '/' })
                     authDict.updateAuth("true")
                     navigate('/kitchen')
                 }

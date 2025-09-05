@@ -4,6 +4,7 @@ import PromptBox from './Components/PromptBox'
 import HomePage from './Pages/HomePage'
 import RecipeDatabasePage from './Pages/RecipeDatabasePage'
 import PortalPage from './Pages/PortalPage'
+import AccountPage from './Pages/AccountPage'
 import KitchenPage from './Pages/KitchenPage'
 import { useState } from 'react'
 import AuthContext from './Context/AuthContext'
@@ -42,6 +43,7 @@ function App() {
                             <Route path="/recipes" element={<RecipeDatabasePage />} />
                             <Route path="/portal" element={<PortalPage />} />
                             <Route path="/kitchen" element={<KitchenPage/> }></Route>
+                            <Route path="/account" element={<AccountPage/> }></Route>
                         </Routes>
                         {
                             promptState && (
